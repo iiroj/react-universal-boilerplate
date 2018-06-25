@@ -22,7 +22,7 @@ This project uses the latest and greatest for lazy-loading pages and code-splitt
 * [memory-cache](https://github.com/ptarjan/node-cache) — caching rendered pages
 * [webpack-flush-chunks](https://github.com/faceyspacey/webpack-flush-chunks) — deciding which bundles to include on which pages
 * [@babel/babel](https://github.com/babel/babel) — transpiling ECMAscript
-* [@babel/presset-env](https://github.com/babel/babel/tree/master/packages/babel-preset-env) — transpiling based on browser/node targets
+* [@babel/preset-env](https://github.com/babel/babel/tree/master/packages/babel-preset-env) — transpiling based on browser/node targets
 * [webpack](https://github.com/webpack/webpack) — bundling the client-side code
 
 ## Developing
