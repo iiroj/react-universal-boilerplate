@@ -2,7 +2,7 @@
 
 An example React/Redux application with SSR and code-splitting.
 
-The code contains the bare minimum setup to have "working" application. For example, a single redux saga has been set up, but it's not really in use. There's some styling done with emotion, as an example.
+The code contains the bare minimum setup to have a "working" application. For example, a single redux saga has been set up, but it's not really in use. There's some styling done with emotion, as an example.
 
 Feel free to clone/fork this repository and build upon it.
 
@@ -12,18 +12,18 @@ This project uses the latest and greatest for lazy-loading pages and code-splitt
 
 * [react](https://github.com/facebook/react) — the basis
 * [redux](https://github.com/reduxjs/redux) — state management
-* [immer](https://github.com/mweststrate/immer) — for handling immutable state
+* [immer](https://github.com/mweststrate/immer) — handling immutable state
 * [redux-saga](https://github.com/redux-saga/redux-saga) — side-effects for redux
 * [redux-first-router](https://github.com/faceyspacey/redux-first-router) — routing of pages
 * [react-universal-component](https://github.com/faceyspacey/react-universal-component) — code-splitting and lazy-loading
 * [emotion](https://github.com/emotion-js/emotion) — styling (css-in-js)
-* [react-helmet](https://github.com/nfl/react-helmet) — manipulating the `<head>`from React
+* [react-helmet](https://github.com/nfl/react-helmet) — manipulating the `<head>` from React
 * [express](https://github.com/expressjs/express) — the server framework
-* [memory-cache](https://github.com/ptarjan/node-cache) — for caching rendered pages
-* [webpack-flush-chunks](https://github.com/faceyspacey/webpack-flush-chunks) — for deciding which bundles to include on which pages
-* [@babel/babel](https://github.com/babel/babel) — for transpiling ECMAscript
-* [@babel/presset-env](https://github.com/babel/babel/tree/master/packages/babel-preset-env) — for transpiling based on browser/node targets
-* [webpack](https://github.com/webpack/webpack) — for bundling the client-side code
+* [memory-cache](https://github.com/ptarjan/node-cache) — caching rendered pages
+* [webpack-flush-chunks](https://github.com/faceyspacey/webpack-flush-chunks) — deciding which bundles to include on which pages
+* [@babel/babel](https://github.com/babel/babel) — transpiling ECMAscript
+* [@babel/presset-env](https://github.com/babel/babel/tree/master/packages/babel-preset-env) — transpiling based on browser/node targets
+* [webpack](https://github.com/webpack/webpack) — bundling the client-side code
 
 ## Developing
 
