@@ -12,11 +12,6 @@ import getWebpackStats from './getWebpackStats';
 import configureStore from './configureStore';
 import getHtml from '../view/html';
 
-const unique = array => {
-  const table = {};
-  return array.filter(string => (table.hasOwnProperty(string) ? false : (table[string] = true)));
-};
-
 const createScriptTags = scripts =>
   scripts.map(src => `<script type="text/javascript" src="/${src}" rel="subresource" defer></script>`).join('');
 
@@ -41,7 +36,7 @@ export default async (req, res) => {
     after: ['client'],
     chunkNames
   });
-  const js = createScriptTags(unique(scripts));
+  const js = createScriptTags(scripts);
 
   const state = htmlescape(store.getState());
 
