@@ -28,7 +28,7 @@ const Home = ({ page }) => (
     <Container>
       <Title>{page.title}</Title>
       <Button href="https://gitlab.com/iiroj/react-universal-boilerplate">GitLab</Button>
-      <Button to="/404">See 404 page</Button>
+      <Button href="/404">See 404 page</Button>
     </Container>
   </Fragment>
 );

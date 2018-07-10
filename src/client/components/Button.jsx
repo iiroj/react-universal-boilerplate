@@ -1,18 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'redux-first-router-link';
+import { Link } from 'redux-little-router';
 import styled from 'react-emotion';
 
-const Button = ({ children, className, href, to }) =>
-  href ? (
-    <a className={className} href={href} tabIndex={0} role="button">
-      {children}
-    </a>
-  ) : (
-    <Link className={className} to={to} tabIndex={0} role="button">
-      {children}
-    </Link>
-  );
+const Button = ({ children, className, href }) => (
+  <Link className={className} href={href} tabIndex={0} role="button">
+    {children}
+  </Link>
+);
 
 Button.propTypes = {
   children: PropTypes.any.isRequired,

@@ -3,7 +3,6 @@ import styled from 'react-emotion';
 import PropTypes from 'prop-types';
 import Head from 'react-helmet';
 
-import { pageTypes } from '../../ducks/page';
 import Button from '../../components/Button';
 
 const Container = styled.main`
@@ -28,7 +27,7 @@ const NotFound = ({ page }) => (
       <h2>
         The request page <strong>{page.path}</strong> does not exist.
       </h2>
-      <Button to={{ type: pageTypes.GO_HOME }}>Go Home</Button>
+      <Button href="/">Go Home</Button>
     </Container>
   </Fragment>
 );
