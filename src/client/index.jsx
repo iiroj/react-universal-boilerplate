@@ -2,19 +2,25 @@ import '@babel/polyfill';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { initializeCurrentLocation, routerForBrowser } from 'redux-little-router';
 import { Provider } from 'react-redux';
-import createHistory from 'history/createBrowserHistory';
 import { AppContainer } from 'react-hot-loader';
 
+import { routesByPath } from './routes';
 import configureStore from './store';
 
 import App from './components/App';
 
 const state = JSON.parse(document.getElementById('initial-state').innerHTML);
 
-const history = createHistory();
+const router = routerForBrowser({ routes: routesByPath });
 const store =
-  module.hot && module.hot.data && module.hot.data.store ? module.hot.data.store : configureStore(history, state).store;
+  module.hot && module.hot.data && module.hot.data.store ? module.hot.data.store : configureStore(router, state);
+
+const initialLocation = state.router;
+if (initialLocation) {
+  store.dispatch(initializeCurrentLocation(initialLocation));
+}
 
 const root = document.getElementById('root');
 

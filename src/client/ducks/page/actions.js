@@ -1,11 +1,3 @@
 import * as types from './types';
 
-export const goToPage = type => ({ type });
-
-export const goHome = () => ({
-  type: types.GO_HOME
-});
-
-export const notFound = () => ({
-  type: types.NOT_FOUND
-});
+export const goToPage = payload => ({ type: types.GO_TO_PAGE, payload });

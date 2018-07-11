@@ -1,29 +1,18 @@
-import createHistory from 'history/createMemoryHistory';
-import { NOT_FOUND } from 'redux-first-router';
+import { initializeCurrentLocation, routerForExpress } from 'redux-little-router';
 
+import { routesByPath } from '../../client/routes';
 import configureStore from '../../client/store';
 
-const doesRedirect = ({ kind, pathname }, res) => {
-  if (kind === 'redirect') {
-    res.redirect(302, pathname);
-    return true;
-  }
-};
+export default async (request, response) => {
+  const router = routerForExpress({ routes: routesByPath, request });
+  const store = configureStore(router);
 
-export default async (req, res) => {
-  const history = createHistory({ initialEntries: [req.path] });
-  const { store, thunk } = configureStore(history);
+  const state = store.getState();
 
-  let location = store.getState().location;
-  if (doesRedirect(location, res)) return false;
+  store.dispatch(initializeCurrentLocation(state.router));
 
-  await thunk(store);
-
-  location = store.getState().location;
-  if (doesRedirect(location, res)) return false;
-
-  if (location.type === NOT_FOUND) {
-    res.status(404);
+  if (!state.router.route) {
+    response.status(404);
   }
 
   return store;
