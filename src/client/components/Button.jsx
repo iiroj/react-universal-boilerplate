@@ -3,11 +3,16 @@ import PropTypes from 'prop-types';
 import { Link } from 'redux-little-router';
 import styled from 'react-emotion';
 
-const Button = ({ children, className, href }) => (
-  <Link className={className} href={href} tabIndex={0} role="button">
-    {children}
-  </Link>
-);
+const Button = ({ children, className, href, ...rest }) =>
+  href.startsWith('https') ? (
+    <a className={className} href={href} {...rest}>
+      {children}
+    </a>
+  ) : (
+    <Link className={className} href={href} {...rest}>
+      {children}
+    </Link>
+  );
 
 Button.propTypes = {
   children: PropTypes.any.isRequired,
@@ -28,6 +33,7 @@ export default styled(Button)`
   display: inline-block;
   font-size: 1rem;
   font-weight: 600;
+  outline: none;
   padding: 0.25rem 1rem;
   text-decoration: none;
   transition: all 125ms ease-in-out;
