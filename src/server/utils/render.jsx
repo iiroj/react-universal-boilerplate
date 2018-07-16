@@ -1,6 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom/server';
+import { renderToString } from 'react-dom/server';
 import htmlescape from 'htmlescape';
+import { html } from 'common-tags';
 import { renderStylesToString } from 'emotion-server';
 import Helmet from 'react-helmet';
 import { Provider } from 'react-redux';
@@ -10,10 +11,6 @@ import flushChunks from 'webpack-flush-chunks';
 import App from '../../client/components/App';
 import getWebpackStats from './getWebpackStats';
 import configureStore from './configureStore';
-import getHtml from '../view/html';
-
-const createScriptTags = scripts =>
-  scripts.map(src => `<script type="text/javascript" src="/${src}" rel="subresource" defer></script>`).join('');
 
 export default async (req, res) => {
   const stats = getWebpackStats(res);
@@ -21,7 +18,7 @@ export default async (req, res) => {
   if (!store) return;
 
   const app = renderStylesToString(
-    ReactDOM.renderToString(
+    renderToString(
       <Provider store={store}>
         <App />
       </Provider>
@@ -36,9 +33,29 @@ export default async (req, res) => {
     after: ['client'],
     chunkNames
   });
-  const js = createScriptTags(scripts);
 
   const state = htmlescape(store.getState());
 
-  return getHtml({ app, helmet, js, state });
+  return html`
+    <!DOCTYPE html>
+    <html lang="en" ${helmet.htmlAttributes.toString()}>
+      <head>
+        <meta charSet="utf-8" />
+        ${helmet.title.toString()}
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        ${helmet.meta.toString()}
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" sizes="600x600" href="/icon.png" />
+        ${helmet.link.toString()}
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        ${scripts.map(src => `<script type="text/javascript" src="/${src}" rel="subresource" defer></script>`)}
+        <script id="initial-state" type="application/json">${state}</script>
+      </head>
+      <body ${helmet.bodyAttributes.toString()}>
+        <div id="root">${app}</div>
+      </body>
+    </html>
+  `;
 };
