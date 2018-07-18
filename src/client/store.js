@@ -1,36 +1,23 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
-import { all } from 'redux-saga/effects';
-import createSagaMiddleware from 'redux-saga';
 import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction';
+import { connectRoutes } from 'redux-first-router';
 
-import { page, pageActions, forkPageSagas } from './ducks/page';
-
-const actions = {
-  ...pageActions
-};
+import routes from './routes';
+import { page } from './ducks/page';
 
 const state = {
   page
 };
 
-function* configureSagas(context) {
-  yield all([...forkPageSagas(context)]);
-}
+const composeEnhancers = (...args) => (typeof window !== 'undefined' ? composeWithDevTools(...args) : compose(...args));
 
-const composeEnhancers = (...args) =>
-  typeof window !== 'undefined' ? composeWithDevTools({ actions })(...args) : compose(...args);
+export default (history, preLoadedState, sagaContext) => {
+  const { reducer, middleware, enhancer, thunk } = connectRoutes(history, routes);
 
-export default (router, initialState, sagaContext) => {
-  const { reducer: routerReducer, middleware: routerMiddleware, enhancer } = router;
-  const sagaMiddleware = createSagaMiddleware();
-
-  const rootReducer = combineReducers({ ...state, router: routerReducer });
-  const middlewares = applyMiddleware(routerMiddleware, sagaMiddleware);
+  const rootReducer = combineReducers({ ...state, location: reducer });
+  const middlewares = applyMiddleware(middleware);
   const enhancers = composeEnhancers(enhancer, middlewares);
-  const store = {
-    ...createStore(rootReducer, initialState, enhancers),
-    runSaga: sagaMiddleware.run(configureSagas, sagaContext)
-  };
+  const store = createStore(rootReducer, preLoadedState, enhancers);
 
-  return store;
+  return { store, thunk };
 };

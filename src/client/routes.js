@@ -1,11 +1,7 @@
-const HOME = '/';
-
-export const routesByName = {
-  HOME
-};
-
-export const routesByPath = {
-  [HOME]: {
-    title: 'React Universal Boilerplate'
+export default {
+  HOME: {
+    path: '/',
+    title: 'React Universal Boilerplate',
+    component: 'Home'
   }
 };

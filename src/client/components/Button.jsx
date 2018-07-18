@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'redux-little-router';
+import Link from 'redux-first-router-link';
 import styled from 'react-emotion';
 
-const Button = ({ children, className, href, ...rest }) =>
-  href.startsWith('https') ? (
-    <a className={className} href={href} {...rest}>
-      {children}
-    </a>
-  ) : (
-    <Link className={className} href={href} {...rest}>
+const Button = ({ children, href, to, ...rest }) =>
+  to ? (
+    <Link to={to} tabIndex={0} role="button" {...rest}>
       {children}
     </Link>
+  ) : (
+    <a href={href} tabIndex={0} role="button" {...rest}>
+      {children}
+    </a>
   );
 
 Button.propTypes = {
@@ -33,7 +33,6 @@ export default styled(Button)`
   display: inline-block;
   font-size: 1rem;
   font-weight: 600;
-  outline: none;
   padding: 0.25rem 1rem;
   text-decoration: none;
   transition: all 125ms ease-in-out;
