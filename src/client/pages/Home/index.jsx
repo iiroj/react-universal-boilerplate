@@ -30,7 +30,7 @@ const Home = ({ page }) => (
       <Button href="https://gitlab.com/iiroj/react-universal-boilerplate" target="_blank" rel="noopener noreferrer">
         GitLab
       </Button>
-      <Button href="/404">See 404 page</Button>
+      <Button to="/404">See 404 page</Button>
     </Container>
   </Fragment>
 );

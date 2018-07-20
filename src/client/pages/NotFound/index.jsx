@@ -27,7 +27,7 @@ const NotFound = ({ page }) => (
       <h2>
         The request page <strong>{page.path}</strong> does not exist.
       </h2>
-      <Button href="/">Go Home</Button>
+      <Button to="/">Go Home</Button>
     </Container>
   </Fragment>
 );

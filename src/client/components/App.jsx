@@ -1,14 +1,10 @@
-import React, { Fragment, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { injectGlobal } from 'react-emotion';
 import reset from 'css-wipe/js';
 import FontFaceObserver from 'fontfaceobserver';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import universal from 'react-universal-component';
-import { Fragment as Route } from 'redux-little-router';
-import Head from 'react-helmet';
-
-import { routesByName } from '../routes';
 
 injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,600,600i');
@@ -55,7 +51,7 @@ injectGlobal`
 
 const plex = new FontFaceObserver('IBM Plex Sans');
 
-const UniversalComponent = universal(({ component, page }) => import(`../pages/${component}`), {
+const UniversalComponent = universal(({ page }) => import(`../pages/${page.component}`), {
   loadingTransition: false
 });
 
@@ -71,27 +67,16 @@ class App extends PureComponent {
   render() {
     const { page } = this.props;
 
-    return (
-      <Fragment>
-        <Head>
-          <title>{page.title}</title>
-        </Head>
-        <Route withConditions={({ route }) => route === routesByName.HOME}>
-          <UniversalComponent component="Home" page={page} />
-        </Route>
-        <Route withConditions={({ route }) => !route}>
-          <UniversalComponent component="NotFound" page={page} />
-        </Route>
-      </Fragment>
-    );
+    return <UniversalComponent page={page} />;
   }
 }
 
 App.propTypes = {
   page: PropTypes.shape({
     path: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    component: PropTypes.string.isRequired
   }).isRequired
 };
 
-export default connect(({ page, router }) => ({ page: { ...page, path: router.pathname } }))(App);
+export default connect(({ page }) => ({ page }))(App);
