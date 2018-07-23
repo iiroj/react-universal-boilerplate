@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.5.0] - 2018-07-23
+### Fixed
+- Move usage of `react-universal-component` to same directory level as the pages, so that `webpack-flush-chunks` can detect bundles correctly
+  * It seems webpack named bundles as `foo/Bar` whereas other utilies expect `foo-Bar`; this is circumvented by imports not needing multiple levels of directories
+
 ## [0.4.0] - 2018-07-20
 ### Changed
 - Switch back to `redux-first-router`

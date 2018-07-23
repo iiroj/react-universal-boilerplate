@@ -4,7 +4,8 @@ import reset from 'css-wipe/js';
 import FontFaceObserver from 'fontfaceobserver';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import universal from 'react-universal-component';
+
+import Pages from '../pages';
 
 injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,600,600i');
@@ -51,10 +52,6 @@ injectGlobal`
 
 const plex = new FontFaceObserver('IBM Plex Sans');
 
-const UniversalComponent = universal(({ page }) => import(`../pages/${page.component}`), {
-  loadingTransition: false
-});
-
 class App extends PureComponent {
   componentDidMount() {
     plex.load().then(injectGlobal`
@@ -64,11 +61,7 @@ class App extends PureComponent {
     `);
   }
 
-  render() {
-    const { page } = this.props;
-
-    return <UniversalComponent page={page} />;
-  }
+  render = () => <Pages page={this.props.page} />;
 }
 
 App.propTypes = {
