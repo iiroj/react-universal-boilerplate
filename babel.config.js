@@ -8,7 +8,9 @@ module.exports = api => {
   };
 
   const plugins = [
+    ['@babel/plugin-proposal-export-namespace-from'],
     ['@babel/plugin-proposal-class-properties'],
+    ['@babel/plugin-syntax-dynamic-import'],
     ['babel-plugin-transform-export-default-name'],
     ['babel-plugin-inline-react-svg'],
     [
@@ -50,17 +52,13 @@ module.exports = api => {
       babelEnvOptions.targets = {
         node: 'current'
       };
-      plugins.push(['babel-plugin-universal-import', { babelServer: true }], ['@babel/plugin-syntax-dynamic-import']);
+      plugins.push(['babel-plugin-universal-import', { babelServer: true }]);
       break;
     }
   }
 
   const config = {
-    presets: [
-      ['@babel/preset-env', babelEnvOptions],
-      ['@babel/preset-react'],
-      ['@babel/preset-stage-2', { decoratorsLegacy: true }]
-    ],
+    presets: [['@babel/preset-env', babelEnvOptions], ['@babel/preset-react']],
     plugins
   };
 
