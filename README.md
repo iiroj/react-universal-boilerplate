@@ -1,4 +1,5 @@
 <div align="center">
+  <img src="public/favicon_192.png" alt="React Universal Boilerplate" width="64" height="64">
   <h1 align="center">React Universal Boilerplate</h1>
   <p>An example React/Redux application with SSR and code-splitting</p>
   <a href="https://gitlab.com/iiroj/react-universal-boilerplate"><strong>GitLab</strong></a>
