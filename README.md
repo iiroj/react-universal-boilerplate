@@ -1,6 +1,24 @@
-# react-universal-boilerplate
-
-An example React/Redux application with SSR and code-splitting.
+<div align="center">
+  <h1 align="center">React Universal Boilerplate</h1>
+  <p>An example React/Redux application with SSR and code-splitting</p>
+  <a href="https://gitlab.com/iiroj/react-universal-boilerplate"><strong>GitLab</strong></a>
+  <br/>
+  <br/>
+  <a href="https://gitlab.com/iiroj/react-universal-boilerplate">
+    <img src="https://img.shields.io/github/package-json/v/iiroj/react-universal-boilerplate.svg?style=flat-square">
+  </a>
+  <a href="https://gitlab.com/iiroj/react-universal-boilerplate">
+    <img src="https://img.shields.io/github/languages/code-size/iiroj/react-universal-boilerplate.svg?style=flat-square">
+  </a>
+  <a href="https://gitlab.com/iiroj/react-universal-boilerplate/blob/master/package.json">
+    <img src="https://img.shields.io/david/iiroj/react-universal-boilerplate.svg?style=flat-square">
+  </a>
+  <a href="https://gitlab.com/iiroj/react-universal-boilerplate/blob/master/package.json">
+    <img src="https://img.shields.io/david/dev/iiroj/react-universal-boilerplate.svg?style=flat-square">
+  </a>
+  <br/>
+  <br/>
+</div>
 
 The code contains the bare minimum setup to have a "working" application. For example, a single redux saga has been set up, but it's not really in use. There's some styling done with emotion, as an example.
 
