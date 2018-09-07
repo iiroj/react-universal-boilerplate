@@ -8,12 +8,12 @@
     "ecmaVersion": 8,
     "sourceType": "module"
   },
-  "plugins": [
-    "import",
-    "jsx-a11y",
-    "prettier",
-    "react"
-  ],
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "plugins": ["import", "jsx-a11y", "prettier", "react"],
   "extends": [
     "plugin:import/errors",
     "plugin:import/react",
@@ -26,7 +26,7 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [".js",".jsx"]
+        "extensions": [".js", ".jsx"]
       }
     },
     "react": {
@@ -37,11 +37,14 @@
   "rules": {
     "arrow-body-style": ["error", "as-needed"],
     "no-undef": 2,
-    "no-unused-vars": [2, {
-      "args": "none",
-      "vars": "all",
-      "varsIgnorePattern": "hJSX"
-    }],
+    "no-unused-vars": [
+      2,
+      {
+        "args": "none",
+        "vars": "all",
+        "varsIgnorePattern": "hJSX"
+      }
+    ],
     "prettier/prettier": [
       "error",
       {
@@ -50,10 +53,5 @@
       }
     ],
     "react/display-name": 0
-  },
-  "env": {
-    "browser": true,
-    "es6": true,
-    "node": true
   }
 }
