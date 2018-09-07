@@ -1,7 +1,7 @@
 import universal from 'react-universal-component';
 import PropTypes from 'prop-types';
 
-const UniversalComponent = universal(({ page }) => import(`./${page.component}`), {
+const UniversalComponent = universal(({ page }) => import(`../pages/${page.component}`), {
   loadingTransition: false
 });
 

@@ -1,35 +1,33 @@
-import React, { Fragment } from 'react';
-import styled from 'react-emotion';
+import { css } from 'emotion';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'react-helmet';
 
-import Button from '../../components/Button';
+import Button from '../components/Button';
 
-const Container = styled.main`
-  h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
+const h1 = css({
+  fontSize: '3rem',
+  marginBottom: '1rem'
+});
 
-  h2 {
-    line-height: 1;
-    margin-bottom: 2rem;
-  }
-`;
+const h2 = css({
+  lineHeight: 1,
+  marginBottom: '2rem'
+});
 
 const NotFound = ({ page }) => (
-  <Fragment>
+  <>
     <Head>
       <title>{page.title}</title>
     </Head>
-    <Container>
-      <h1>Not Found</h1>
-      <h2>
+    <main>
+      <h1 className={h1}>Not Found</h1>
+      <h2 className={h2}>
         The request page <strong>{page.path}</strong> does not exist.
       </h2>
       <Button to="/">Go Home</Button>
-    </Container>
-  </Fragment>
+    </main>
+  </>
 );
 
 NotFound.propTypes = {
