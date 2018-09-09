@@ -5,7 +5,7 @@ import FontFaceObserver from 'fontfaceobserver';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import UniversalComponent from './UniversalComponent';
+import PageLoader from '../pages';
 
 const plex = new FontFaceObserver('IBM Plex Sans');
 
@@ -15,7 +15,7 @@ class App extends PureComponent {
   }
 
   render() {
-    return <UniversalComponent page={this.props.page} />;
+    return <PageLoader page={this.props.page} />;
   }
 }
 
