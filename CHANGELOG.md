@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.1"></a>
+## [1.0.1](https://gitlab.com/iiroj/react-universal-boilerplate/compare/v1.0.0...v1.0.1) (2018-09-09)
+
+
+### Bug Fixes
+
+* Fix loading of multiple font weights ([ff0edf5](https://gitlab.com/iiroj/react-universal-boilerplate/commit/ff0edf5))
+* Workaround for bug with react-universal-component ([848281a](https://gitlab.com/iiroj/react-universal-boilerplate/commit/848281a))
+
+
+
 <a name="1.0.0"></a>
 # [1.0.0](https://gitlab.com/iiroj/react-universal-boilerplate/compare/v0.6.2...v1.0.0) (2018-09-07)
 
