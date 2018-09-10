@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.0"></a>
+# [2.0.0](https://gitlab.com/iiroj/react-universal-boilerplate/compare/v1.0.1...v2.0.0) (2018-09-10)
+
+
+### Features
+
+* Disable SSR when developing ([4053631](https://gitlab.com/iiroj/react-universal-boilerplate/commit/4053631))
+
+
+### BREAKING CHANGES
+
+* SSR is no longer used in development mode. This has the major benefit of being faster (no rendering of React), obviously. In the client side ReactDOM.hydrate is only used in production, while ReactDOM.render is used when developing.
+
+Another benefit is that previously, the server was run via @babel/node and restarted with nodemon on changes to server code. This slowed rebuilding and also wasn’t perferct. It didn’t detect changes in the client code, which is only babeled (for SSR) once.
+
+To keep SSR when developing, we would need to always restart @babel/node on changes to ‘src/‘. The packabe ‘babel-watch’ does this, but it’s no longer maintained and incompatible with Babel 7.
+
+All in all I think change is for a better Developer Experience.
+
+
+
 <a name="1.0.1"></a>
 ## [1.0.1](https://gitlab.com/iiroj/react-universal-boilerplate/compare/v1.0.0...v1.0.1) (2018-09-09)
 
