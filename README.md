@@ -33,7 +33,7 @@ This project uses the latest and greatest for lazy-loading pages and code-splitt
 * [redux](https://github.com/reduxjs/redux) — state management
 * [immer](https://github.com/mweststrate/immer) — handling immutable state
 * [redux-saga](https://github.com/redux-saga/redux-saga) — side-effects for redux
-* [redux-little-router](https://github.com/FormidableLabs/redux-little-router) — routing of pages
+* [redux-first-router](https://github.com/faceyspacey/redux-first-router) — routing of pages
 * [react-universal-component](https://github.com/faceyspacey/react-universal-component) — code-splitting and lazy-loading
 * [emotion](https://github.com/emotion-js/emotion) — styling (css-in-js)
 * [react-helmet](https://github.com/nfl/react-helmet) — manipulating the `<head>` from React
