@@ -9,32 +9,38 @@ import { flushChunkNames } from 'react-universal-component/server';
 import flushChunks from 'webpack-flush-chunks';
 
 import App from '../../client/components/App';
+
+import config from '../config';
 import getWebpackStats from './getWebpackStats';
 import configureStore from './configureStore';
 
 export default async (req, res) => {
-  const stats = getWebpackStats(res);
-  const store = await configureStore(req, res);
-  if (!store) return;
+  let app;
+  let store;
+  let state = '{}';
 
-  const app = renderStylesToString(
-    renderToString(
-      <Provider store={store}>
-        <App />
-      </Provider>
-    )
-  );
+  if (config.isProduction) {
+    store = await configureStore(req, res);
+    state = htmlescape(store.getState());
+
+    app = renderStylesToString(
+      renderToString(
+        <Provider store={store}>
+          <App />
+        </Provider>
+      )
+    );
+  }
 
   const helmet = Helmet.renderStatic();
 
+  const stats = getWebpackStats(res);
   const chunkNames = flushChunkNames();
   const { scripts } = flushChunks(stats, {
     before: ['runtime', 'vendor'],
     after: ['client'],
     chunkNames
   });
-
-  const state = htmlescape(store.getState());
 
   return html`
     <!DOCTYPE html>

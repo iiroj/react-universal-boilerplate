@@ -10,21 +10,20 @@ import configureStore from './store';
 
 import App from './components/App';
 
-const state = JSON.parse(document.getElementById('initial-state').innerHTML);
-
 const history = createHistory();
+const state = JSON.parse(document.getElementById('initial-state').innerHTML);
 const store =
   module.hot && module.hot.data && module.hot.data.store ? module.hot.data.store : configureStore(history, state).store;
 
-const root = document.getElementById('root');
+const render = process.env.NODE_ENV === 'production' ? ReactDOM.hydrate : ReactDOM.render;
 
-ReactDOM.hydrate(
+render(
   <AppContainer>
     <Provider store={store}>
       <App />
     </Provider>
   </AppContainer>,
-  root
+  document.getElementById('root')
 );
 
 if (module.hot) {
