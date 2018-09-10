@@ -20,7 +20,7 @@ export default async (req, res) => {
   let state = '{}';
   const context = {};
 
-  if (config.isProduction) {
+  if (config.isProduction || config.devSSR) {
     const { store, history } = configureStore(req.url);
     state = htmlescape(store.getState());
 
