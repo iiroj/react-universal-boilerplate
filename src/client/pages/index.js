@@ -1,16 +1,6 @@
 import universal from 'react-universal-component';
-import PropTypes from 'prop-types';
 
-const PageLoader = universal(({ page }) => import(`./${page.component}`), {
-  loadingTransition: false
-});
+const options = { loadingTransition: false };
 
-PageLoader.propTypes = {
-  page: PropTypes.shape({
-    path: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    component: PropTypes.string.isRequired
-  }).isRequired
-};
-
-export default PageLoader;
+export const Home = universal(() => import('./Home.jsx'), options);
+export const NotFound = universal(() => import('./NotFound.jsx'), options);

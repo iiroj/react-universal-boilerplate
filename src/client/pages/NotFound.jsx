@@ -1,6 +1,5 @@
 import { css } from 'emotion';
 import React from 'react';
-import PropTypes from 'prop-types';
 import Head from 'react-helmet';
 
 import Button from '../components/Button';
@@ -15,26 +14,17 @@ const h2 = css({
   marginBottom: '2rem'
 });
 
-const NotFound = ({ page }) => (
+const NotFound = () => (
   <>
     <Head>
-      <title>{page.title}</title>
+      <title>404 — Not Found</title>
     </Head>
     <main>
       <h1 className={h1}>Not Found</h1>
-      <h2 className={h2}>
-        The request page <strong>{page.path}</strong> does not exist.
-      </h2>
+      <h2 className={h2}>The request page does not exist.</h2>
       <Button to="/">Go Home</Button>
     </main>
   </>
 );
-
-NotFound.propTypes = {
-  page: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    path: PropTypes.string.isRequired
-  }).isRequired
-};
 
 export default NotFound;

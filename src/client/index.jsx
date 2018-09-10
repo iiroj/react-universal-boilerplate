@@ -12,24 +12,25 @@ import App from './components/App';
 
 const history = createHistory();
 const state = JSON.parse(document.getElementById('initial-state').innerHTML);
-const store =
-  module.hot && module.hot.data && module.hot.data.store ? module.hot.data.store : configureStore(history, state).store;
+const store = configureStore(history, state);
 
-const render = process.env.NODE_ENV === 'production' ? ReactDOM.hydrate : ReactDOM.render;
-
-render(
+const Application = (
   <AppContainer>
     <Provider store={store}>
-      <App />
+      <App history={history} />
     </Provider>
-  </AppContainer>,
-  document.getElementById('root')
+  </AppContainer>
 );
 
-if (module.hot) {
-  module.hot.accept();
+const isProduction = process.env.NODE_ENV === 'production';
+const root = document.getElementById('root');
 
-  module.hot.dispose(data => {
-    data.store = store;
+const render = () => (isProduction ? ReactDOM.hydrate(Application, root) : ReactDOM.render(Application, root));
+
+render();
+
+if (!isProduction && module.hot) {
+  module.hot.accept('./components/App', () => {
+    render();
   });
 }

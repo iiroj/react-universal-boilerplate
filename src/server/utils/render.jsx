@@ -1,12 +1,13 @@
 import React from 'react';
-import { renderToString } from 'react-dom/server';
 import htmlescape from 'htmlescape';
-import { html } from 'common-tags';
+import { renderToString } from 'react-dom/server';
+import { Provider } from 'react-redux';
+import { StaticRouter } from 'react-router';
 import { renderStylesToString } from 'emotion-server';
 import Helmet from 'react-helmet';
-import { Provider } from 'react-redux';
 import { flushChunkNames } from 'react-universal-component/server';
 import flushChunks from 'webpack-flush-chunks';
+import { html } from 'common-tags';
 
 import App from '../../client/components/App';
 
@@ -16,20 +17,26 @@ import configureStore from './configureStore';
 
 export default async (req, res) => {
   let app;
-  let store;
   let state = '{}';
+  const context = {};
 
   if (config.isProduction) {
-    store = await configureStore(req, res);
+    const { store, history } = configureStore(req.url);
     state = htmlescape(store.getState());
 
     app = renderStylesToString(
       renderToString(
         <Provider store={store}>
-          <App />
+          <StaticRouter location={req.url} context={context}>
+            <App history={history} />
+          </StaticRouter>
         </Provider>
       )
     );
+  }
+
+  if (context.url) {
+    return res.redirect(302, context.url);
   }
 
   const helmet = Helmet.renderStatic();

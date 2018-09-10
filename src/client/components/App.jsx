@@ -1,32 +1,32 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { ConnectedRouter } from 'connected-react-router';
+import { Route, Switch } from 'react-router-dom';
 import { injectGlobal } from 'emotion';
 import reset from 'css-wipe/js';
 import FontFaceObserver from 'fontfaceobserver';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
-import PageLoader from '../pages';
+import { Home, NotFound } from '../pages';
 
 const plex300 = new FontFaceObserver('IBM Plex Sans', { weight: 300 });
 const plex600 = new FontFaceObserver('IBM Plex Sans', { weight: 600 });
 
-class App extends PureComponent {
-  async componentDidMount() {
-    await Promise.all([plex300.load(), plex600.load()]);
-  }
+export default class App extends React.Component {
+  static propTypes = {
+    history: PropTypes.object.isRequired
+  };
 
-  render() {
-    return <PageLoader page={this.props.page} />;
-  }
+  componentDidMount = () => Promise.all([plex300.load(), plex600.load()]);
+
+  render = () => (
+    <ConnectedRouter history={this.props.history}>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route component={NotFound} />
+      </Switch>
+    </ConnectedRouter>
+  );
 }
-
-App.propTypes = {
-  page: PropTypes.shape({
-    path: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    component: PropTypes.string.isRequired
-  }).isRequired
-};
 
 injectGlobal(
   reset,
@@ -91,5 +91,3 @@ injectGlobal(
     }
   }
 );
-
-export default connect(({ page }) => ({ page }))(App);
