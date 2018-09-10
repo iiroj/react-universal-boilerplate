@@ -7,8 +7,9 @@ if (!isProduction) {
 }
 
 export default {
-  renderCacheTTL: process.env.RENDER_CACHE_TTL || 600,
+  devSSR: process.env.DEV_SSR || false,
   isProduction,
   port: process.env.PORT || 3000,
+  renderCacheTTL: process.env.RENDER_CACHE_TTL || 600,
   version: process.env.VERSION
 };
