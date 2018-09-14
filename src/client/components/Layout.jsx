@@ -1,31 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ConnectedRouter } from 'connected-react-router';
-import { Route, Switch } from 'react-router-dom';
 import { injectGlobal } from 'emotion';
 import reset from 'css-wipe/js';
 import FontFaceObserver from 'fontfaceobserver';
 
-import UniversalComponent from './UniversalComponent';
-
 const plex300 = new FontFaceObserver('IBM Plex Sans', { weight: 300 });
 const plex600 = new FontFaceObserver('IBM Plex Sans', { weight: 600 });
 
-export default class App extends React.Component {
+export default class Layout extends React.Component {
   static propTypes = {
-    history: PropTypes.object.isRequired
+    children: PropTypes.any.isRequired
   };
 
   componentDidMount = () => Promise.all([plex300.load(), plex600.load()]);
 
-  render = () => (
-    <ConnectedRouter history={this.props.history}>
-      <Switch>
-        <Route exact path="/" render={() => <UniversalComponent src={() => import('../pages/Home')} />} />
-        <Route render={() => <UniversalComponent src={() => import('../pages/NotFound')} />} />
-      </Switch>
-    </ConnectedRouter>
-  );
+  render = () => this.props.children;
 }
 
 injectGlobal(

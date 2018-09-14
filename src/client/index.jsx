@@ -8,7 +8,8 @@ import { AppContainer } from 'react-hot-loader';
 
 import configureStore from './store';
 
-import App from './components/App';
+import Layout from './components/Layout';
+import Router from './components/Router';
 
 const history = createHistory();
 const state = JSON.parse(document.getElementById('initial-state').innerHTML);
@@ -17,7 +18,9 @@ const store = configureStore(history, state);
 const Application = (
   <AppContainer>
     <Provider store={store}>
-      <App history={history} />
+      <Layout>
+        <Router history={history} />
+      </Layout>
     </Provider>
   </AppContainer>
 );
@@ -30,7 +33,7 @@ const render = () => (isProduction ? ReactDOM.hydrate(Application, root) : React
 render();
 
 if (!isProduction && module.hot) {
-  module.hot.accept('./components/App', () => {
+  module.hot.accept('./components/Layout', () => {
     render();
   });
 }

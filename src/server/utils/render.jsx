@@ -9,7 +9,8 @@ import { flushChunkNames } from 'react-universal-component/server';
 import flushChunks from 'webpack-flush-chunks';
 import { html } from 'common-tags';
 
-import App from '../../client/components/App';
+import Layout from '../../client/components/Layout';
+import Router from '../../client/components/Router';
 
 import config from '../config';
 import getWebpackStats from './getWebpackStats';
@@ -28,7 +29,9 @@ export default async (req, res) => {
       renderToString(
         <Provider store={store}>
           <StaticRouter location={req.url} context={context}>
-            <App history={history} />
+            <Layout>
+              <Router history={history} />
+            </Layout>
           </StaticRouter>
         </Provider>
       )
