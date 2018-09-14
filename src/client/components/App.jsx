@@ -6,7 +6,7 @@ import { injectGlobal } from 'emotion';
 import reset from 'css-wipe/js';
 import FontFaceObserver from 'fontfaceobserver';
 
-import { Home, NotFound } from '../pages';
+import UniversalComponent from './UniversalComponent';
 
 const plex300 = new FontFaceObserver('IBM Plex Sans', { weight: 300 });
 const plex600 = new FontFaceObserver('IBM Plex Sans', { weight: 600 });
@@ -21,8 +21,8 @@ export default class App extends React.Component {
   render = () => (
     <ConnectedRouter history={this.props.history}>
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route component={NotFound} />
+        <Route exact path="/" render={() => <UniversalComponent src={() => import('../pages/Home')} />} />
+        <Route render={() => <UniversalComponent src={() => import('../pages/NotFound')} />} />
       </Switch>
     </ConnectedRouter>
   );
