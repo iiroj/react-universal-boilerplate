@@ -26,14 +26,11 @@ const Application = (
 );
 
 const isProduction = process.env.NODE_ENV === 'production';
+const render = isProduction ? ReactDOM.hydrate : ReactDOM.render;
 const root = document.getElementById('root');
 
-const render = () => (isProduction ? ReactDOM.hydrate(Application, root) : ReactDOM.render(Application, root));
+render(Application, root);
 
-render();
-
-if (!isProduction && module.hot) {
-  module.hot.accept('./components/Layout', () => {
-    render();
-  });
+if (module.hot) {
+  module.hot.accept();
 }
