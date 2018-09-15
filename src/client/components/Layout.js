@@ -1,8 +1,8 @@
+import FontFaceObserver from 'fontfaceobserver';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { injectGlobal } from 'emotion';
 import reset from 'css-wipe/js';
-import FontFaceObserver from 'fontfaceobserver';
 
 const plex300 = new FontFaceObserver('IBM Plex Sans', { weight: 300 });
 const plex600 = new FontFaceObserver('IBM Plex Sans', { weight: 600 });
