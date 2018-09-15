@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.2"></a>
+## [2.0.2](https://gitlab.com/iiroj/react-universal-boilerplate/compare/v2.0.1...v2.0.2) (2018-09-15)
+
+
+### Bug Fixes
+
+* UniversalComponent doesn’t work with relative imports ([58d8e63](https://gitlab.com/iiroj/react-universal-boilerplate/commit/58d8e63))
+
+
+
 <a name="2.0.1"></a>
 ## [2.0.1](https://gitlab.com/iiroj/react-universal-boilerplate/compare/v2.0.0...v2.0.1) (2018-09-10)
 
