@@ -24,13 +24,13 @@ const config = {
   },
 
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js']
   },
 
   module: {
     rules: [
       {
-        test: /\.(jsx?)$/,
+        test: /\.js$/,
         include: paths.clientSrc,
         use: {
           loader: require.resolve('babel-loader'),
