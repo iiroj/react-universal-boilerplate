@@ -5,19 +5,17 @@ import FontFaceObserver from 'fontfaceobserver';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import PageLoader from '../pages';
+import UniversalComponent from './UniversalComponent';
 
 const plex300 = new FontFaceObserver('IBM Plex Sans', { weight: 300 });
 const plex600 = new FontFaceObserver('IBM Plex Sans', { weight: 600 });
 
 class App extends PureComponent {
-  async componentDidMount() {
-    await Promise.all([plex300.load(), plex600.load()]);
+  componentDidMount() {
+    Promise.all([plex300.load(), plex600.load()]);
   }
 
-  render() {
-    return <PageLoader page={this.props.page} />;
-  }
+  render = () => <UniversalComponent src={() => import(`../pages/${this.props.page}`)} />;
 }
 
 App.propTypes = {
