@@ -1,14 +1,13 @@
+import { NOT_FOUND } from 'redux-first-router';
 import { produce } from 'immer';
 
-import routes from '../../routes';
-
-import * as types from './types';
+import routes from '../routes';
 
 export default (state = routes.HOME, action = {}) =>
   produce(state, draft => {
     const { type } = action;
 
-    if (type === types.NOT_FOUND)
+    if (type === NOT_FOUND)
       return {
         path: action.meta.location.current.pathname,
         title: '404 — Not Found',

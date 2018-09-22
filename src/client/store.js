@@ -3,7 +3,7 @@ import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProductio
 import { connectRoutes } from 'redux-first-router';
 
 import routes from './routes';
-import { page } from './ducks/page';
+import page from './ducks/page';
 
 const state = {
   page
