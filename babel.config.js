@@ -38,7 +38,11 @@ module.exports = api => {
     }
 
     case 'client_development': {
-      plugins.push('@babel/plugin-transform-react-jsx-self', '@babel/plugin-transform-react-jsx-source');
+      plugins.push(
+        'react-hot-loader/babel',
+        '@babel/plugin-transform-react-jsx-self',
+        '@babel/plugin-transform-react-jsx-source'
+      );
       break;
     }
 
@@ -53,7 +57,6 @@ module.exports = api => {
         node: 'current'
       };
       plugins.push(['babel-plugin-universal-import', { babelServer: true }]);
-      break;
     }
   }
 

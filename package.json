@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
-    "babel-plugin-universal-import": "^3.0.2",
+    "babel-plugin-universal-import": "^3.0.3",
     "body-parser": "^1.18.3",
     "common-tags": "^1.8.0",
     "compression": "^1.7.3",
@@ -71,7 +71,7 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.1.0",
     "@babel/runtime": "^7.0.0",
-    "babel-eslint": "^9.0.0",
+    "babel-eslint": "^10.0.0",
     "babel-loader": "^8.0.2",
     "babel-plugin-emotion": "^9.2.10",
     "babel-plugin-inline-react-svg": "^0.5.4",
@@ -83,7 +83,7 @@
     "eslint-config-prettier": "^3.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
-    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-prettier": "^2.7.0",
     "eslint-plugin-react": "^7.11.1",
     "prettier": "^1.14.3",
     "prop-types": "^15.6.2",
@@ -92,10 +92,10 @@
     "standard-version": "^4.4.0",
     "stats-webpack-plugin": "^0.7.0",
     "uglifyjs-webpack-plugin": "^2.0.1",
-    "webpack": "^4.19.1",
+    "webpack": "^4.20.2",
     "webpack-bundle-analyzer": "^3.0.2",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-middleware": "^3.3.0",
-    "webpack-hot-client": "^4.1.1"
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-middleware": "^3.4.0",
+    "webpack-hot-middleware": "^2.24.2"
   }
 }

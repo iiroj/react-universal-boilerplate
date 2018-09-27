@@ -44,6 +44,7 @@ const config = {
 
   plugins: [
     new CaseSensitivePathsPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(isProduction ? 'production' : 'development')
@@ -90,6 +91,9 @@ if (isProduction) {
   ];
 
   config.plugins.push(new StatsPlugin('stats.json', { chunkModules: true }));
+} else {
+  config.entry.client.unshift('webpack-hot-middleware/client?reload=true&overlayWarnings=true');
+  config.plugins.push(new webpack.HotModuleReplacementPlugin());
 }
 
 module.exports = config;

@@ -5,7 +5,6 @@ import helmet from 'helmet';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import morgan from 'morgan';
-
 import paths from '../../config/paths';
 import config from './config';
 import withCache from './services/withCache';
@@ -32,19 +31,25 @@ app.use(
 );
 
 if (!isProduction) {
+  app.use(morgan('dev'));
   app.use(cors());
-
   app.use(helmet.noCache());
 
   const webpack = require('webpack');
   const webpackConfig = require('../../config/webpack.config.js');
   const compiler = webpack(webpackConfig);
 
-  require('webpack-hot-client')(compiler, { hmr: true, port: 3001 });
-  app.use(require('webpack-dev-middleware')(compiler, { serverSideRender: true }));
+  app.use(
+    require('webpack-dev-middleware')(compiler, {
+      publicPath: webpackConfig.output.publicPath,
+      serverSideRender: true
+    })
+  );
 
-  app.use(morgan('dev'));
+  app.use(require('webpack-hot-middleware')(compiler));
 } else {
+  app.use(morgan('tiny'));
+
   app.use(
     helmet.contentSecurityPolicy({
       directives: {
@@ -69,8 +74,6 @@ if (!isProduction) {
 
     res.status(204).end();
   });
-
-  app.use(morgan('tiny'));
 }
 
 app.use(

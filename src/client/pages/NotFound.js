@@ -2,6 +2,7 @@ import { css } from 'emotion';
 import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'react-helmet';
+import { hot } from 'react-hot-loader';
 
 import Button from '../components/Button';
 
@@ -37,4 +38,4 @@ NotFound.propTypes = {
   }).isRequired
 };
 
-export default NotFound;
+export default hot(module)(NotFound);

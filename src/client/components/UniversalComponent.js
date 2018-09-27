@@ -2,7 +2,6 @@ import universal from 'react-universal-component';
 import PropTypes from 'prop-types';
 
 const options = {
-  ignoreBabelRename: true,
   loadingTransition: false
 };
 

@@ -2,6 +2,7 @@ import { css } from 'emotion';
 import React from 'react';
 import Head from 'react-helmet';
 import PropTypes from 'prop-types';
+import { hot } from 'react-hot-loader';
 
 import Button from '../components/Button';
 
@@ -33,4 +34,4 @@ Home.propTypes = {
   }).isRequired
 };
 
-export default Home;
+export default hot(module)(Home);
