@@ -10,27 +10,20 @@ import flushChunks from 'webpack-flush-chunks';
 
 import App from '../../client/components/App';
 
-import config from '../config';
 import getWebpackStats from './getWebpackStats';
 import configureStore from './configureStore';
 
 export default async (req, res) => {
-  let app;
-  let store;
-  let state = '{}';
+  const store = await configureStore(req, res);
+  const state = htmlescape(store.getState());
 
-  if (config.isProduction) {
-    store = await configureStore(req, res);
-    state = htmlescape(store.getState());
-
-    app = renderStylesToString(
-      renderToString(
-        <Provider store={store}>
-          <App />
-        </Provider>
-      )
-    );
-  }
+  const app = renderStylesToString(
+    renderToString(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    )
+  );
 
   const helmet = Helmet.renderStatic();
 

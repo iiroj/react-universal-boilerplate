@@ -9,7 +9,7 @@
   "bugs": "https://gitlab.com/iiroj/react-universal-boilerplate/issues",
   "private": true,
   "scripts": {
-    "dev": "BABEL_ENV=server_development babel-node src/server/index.js",
+    "dev": "BABEL_ENV=server_development nodemon -w src/server -x babel-node -- src/server/index.js",
     "lint": "eslint src",
     "build:client": "NODE_ENV=production BABEL_ENV=client_production webpack --config ./config/webpack.config.js",
     "build:server": "BABEL_ENV=server_production babel src -d dist --copy-files",
@@ -85,6 +85,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-prettier": "^2.7.0",
     "eslint-plugin-react": "^7.11.1",
+    "nodemon": "^1.18.4",
     "prettier": "^1.14.3",
     "prop-types": "^15.6.2",
     "redux-devtools-extension": "^2.13.5",
