@@ -12,7 +12,6 @@ module.exports = api => {
     ['@babel/plugin-proposal-class-properties'],
     ['@babel/plugin-syntax-dynamic-import'],
     ['babel-plugin-transform-export-default-name'],
-    ['babel-plugin-inline-react-svg'],
     [
       'babel-plugin-emotion',
       {
@@ -29,15 +28,7 @@ module.exports = api => {
     babelEnvOptions.targets = {
       browsers: ['Last 2 versions', 'IE >= 11']
     };
-    plugins.push('react-hot-loader/babel', 'babel-plugin-universal-import');
-  }
-
-  if (env === 'client_development') {
-    plugins.push('@babel/plugin-transform-react-jsx-self', '@babel/plugin-transform-react-jsx-source');
-  }
-
-  if (env === 'client_production') {
-    plugins.push('@babel/plugin-transform-react-inline-elements', '@babel/plugin-transform-react-constant-elements');
+    plugins.push('babel-plugin-universal-import');
   }
 
   if (env.includes('server')) {
@@ -45,10 +36,6 @@ module.exports = api => {
       node: 'current'
     };
     plugins.push(['babel-plugin-universal-import', { babelServer: true }]);
-  }
-
-  if (env === 'server_development') {
-    plugins.push('react-hot-loader/babel');
   }
 
   const config = {

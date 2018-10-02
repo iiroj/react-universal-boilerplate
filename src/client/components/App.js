@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 import Layout from './Layout';
 import UniversalComponent from './UniversalComponent';
-import { hot } from 'react-hot-loader';
 
 class App extends React.Component {
   static propTypes = {
@@ -46,4 +45,4 @@ class App extends React.Component {
   }
 }
 
-export default hot(module)(connect(state => state)(App));
+export default connect(state => state)(App);
