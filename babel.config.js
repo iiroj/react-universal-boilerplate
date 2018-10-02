@@ -23,41 +23,32 @@ module.exports = api => {
     ]
   ];
 
-  switch (env) {
-    case 'client_development':
-    case 'client_production': {
-      babelEnvOptions.modules = false;
+  if (env.includes('client')) {
+    babelEnvOptions.modules = false;
+    babelEnvOptions.useBuiltIns = 'entry';
+    babelEnvOptions.targets = {
+      browsers: ['Last 2 versions', 'IE >= 11']
+    };
+    plugins.push('react-hot-loader/babel', 'babel-plugin-universal-import');
+  }
 
-      babelEnvOptions.useBuiltIns = 'entry';
+  if (env === 'client_development') {
+    plugins.push('@babel/plugin-transform-react-jsx-self', '@babel/plugin-transform-react-jsx-source');
+  }
 
-      babelEnvOptions.targets = {
-        browsers: ['Last 2 versions', 'IE >= 11']
-      };
+  if (env === 'client_production') {
+    plugins.push('@babel/plugin-transform-react-inline-elements', '@babel/plugin-transform-react-constant-elements');
+  }
 
-      plugins.push('babel-plugin-universal-import');
-    }
+  if (env.includes('server')) {
+    babelEnvOptions.targets = {
+      node: 'current'
+    };
+    plugins.push(['babel-plugin-universal-import', { babelServer: true }]);
+  }
 
-    case 'client_development': {
-      plugins.push(
-        'react-hot-loader/babel',
-        '@babel/plugin-transform-react-jsx-self',
-        '@babel/plugin-transform-react-jsx-source'
-      );
-      break;
-    }
-
-    case 'client_production': {
-      plugins.push('@babel/plugin-transform-react-inline-elements', '@babel/plugin-transform-react-constant-elements');
-      break;
-    }
-
-    case 'server_development':
-    case 'server_production': {
-      babelEnvOptions.targets = {
-        node: 'current'
-      };
-      plugins.push(['babel-plugin-universal-import', { babelServer: true }]);
-    }
+  if (env === 'server_development') {
+    plugins.push('react-hot-loader/babel');
   }
 
   const config = {
