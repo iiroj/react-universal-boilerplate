@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.1.1"></a>
+## [2.1.1](https://gitlab.com/iiroj/react-universal-boilerplate/compare/v2.1.0...v2.1.1) (2018-10-02)
+
+
+### Bug Fixes
+
+* Re-require App in SSR during development ([84452cc](https://gitlab.com/iiroj/react-universal-boilerplate/commit/84452cc))
+* Use if instead of switch statement in babel config ([2211653](https://gitlab.com/iiroj/react-universal-boilerplate/commit/2211653))
+
+
+
 <a name="2.1.0"></a>
 # [2.1.0](https://gitlab.com/iiroj/react-universal-boilerplate/compare/v2.0.3...v2.1.0) (2018-09-27)
 
