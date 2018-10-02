@@ -1,20 +1,20 @@
 import express from 'express';
 
+import paths from '../../config/paths';
+
 import config from './config';
 import applyMiddleware from './services/middleware';
 import withCache from './services/cache';
-import paths from '../../config/paths';
+import render from './utils/render';
 
 const { isProduction, version } = config;
 
 const app = express();
-
 applyMiddleware(app);
 
-let renderer = require('./utils/render').default;
+const renderer = isProduction ? withCache(render) : render;
 
 if (isProduction) {
-  renderer = withCache(renderer);
 } else {
   const webpack = require('webpack');
   const webpackConfig = require('../../config/webpack.config.js');

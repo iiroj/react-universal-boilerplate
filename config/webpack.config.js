@@ -93,7 +93,11 @@ if (isProduction) {
   config.plugins.push(new StatsPlugin('stats.json', { chunkModules: true }));
 } else {
   config.entry.client.unshift('webpack-hot-middleware/client?reload=true&overlayWarnings=true');
-  config.plugins.push(new webpack.HotModuleReplacementPlugin());
+  config.plugins.push(
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
+  );
 }
 
 module.exports = config;

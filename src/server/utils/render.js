@@ -8,12 +8,19 @@ import { Provider } from 'react-redux';
 import { flushChunkNames } from 'react-universal-component/server';
 import flushChunks from 'webpack-flush-chunks';
 
-import App from '../../client/components/App';
+import StaticImportedApp from '../../client/components/App';
+import config from '../config';
 
 import getWebpackStats from './getWebpackStats';
 import configureStore from './configureStore';
 
+let App = StaticImportedApp;
+
 export default async (req, res) => {
+  if (!config.isProduction) {
+    App = require('../../client/components/App').default;
+  }
+
   const store = await configureStore(req, res);
   const state = htmlescape(store.getState());
 
