@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.0.0"></a>
+# [3.0.0](https://gitlab.com/iiroj/react-universal-boilerplate/compare/v2.1.2...v3.0.0) (2018-10-10)
+
+
+### Bug Fixes
+
+* Fix Issues with building ([3fd8df1](https://gitlab.com/iiroj/react-universal-boilerplate/commit/3fd8df1))
+
+
+### Features
+
+* Rewrite in TypeScript ([8a94569](https://gitlab.com/iiroj/react-universal-boilerplate/commit/8a94569))
+
+
+### BREAKING CHANGES
+
+* This boilerplate has migrated to TypeScript, so there’s bound to be a lot of breaking changes.
+
+
+
 <a name="2.1.2"></a>
 ## [2.1.2](https://gitlab.com/iiroj/react-universal-boilerplate/compare/v2.1.1...v2.1.2) (2018-10-02)
 
