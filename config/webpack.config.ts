@@ -2,6 +2,7 @@ import * as webpack from 'webpack';
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 import StatsPlugin from 'stats-webpack-plugin';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
 import paths from './paths';
 
@@ -43,6 +44,10 @@ const config: webpack.Configuration = {
   },
 
   plugins: [
+    new ForkTsCheckerWebpackPlugin({
+      tslint: true,
+      async: !isProduction
+    }),
     new CaseSensitivePathsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
