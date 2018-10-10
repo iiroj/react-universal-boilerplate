@@ -39,7 +39,7 @@ module.exports = api => {
   }
 
   const config = {
-    presets: [['@babel/preset-env', babelEnvOptions], ['@babel/preset-react']],
+    presets: [['@babel/preset-env', babelEnvOptions], '@babel/preset-typescript', '@babel/preset-react'],
     plugins
   };
 

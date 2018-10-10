@@ -1,20 +1,21 @@
-import PropTypes from 'prop-types';
+import { LocationState } from 'redux-first-router';
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { Route } from '../routes';
 import Layout from './Layout';
 import UniversalComponent from './UniversalComponent';
 
-class App extends React.Component {
-  static propTypes = {
-    location: PropTypes.shape({
-      pathname: PropTypes.string.isRequired
-    }).isRequired,
-    page: PropTypes.shape({
-      component: PropTypes.string.isRequired
-    }).isRequired
-  };
+type Props = {
+  location: LocationState;
+  page: Route;
+};
 
+type State = {
+  loading: boolean;
+};
+
+class App extends React.Component<Props, State> {
   state = {
     loading: false
   };
@@ -23,7 +24,7 @@ class App extends React.Component {
 
   setNotLoading = () => this.setState({ loading: false });
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps: Props) {
     if (this.props.location !== prevProps.location) {
       window.scrollTo(0, 0);
     }
@@ -32,13 +33,15 @@ class App extends React.Component {
   render() {
     const { page } = this.props;
 
+    const src = () => import(`../pages/${page.component}`);
+    
     return (
       <Layout>
         <UniversalComponent
           onBefore={this.setLoading}
           onAfter={this.setNotLoading}
           page={page}
-          src={() => import(`../pages/${page.component}`)}
+          src={src}
         />
       </Layout>
     );

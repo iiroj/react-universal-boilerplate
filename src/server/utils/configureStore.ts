@@ -1,16 +1,18 @@
+import { Request, Response } from 'express';
+
 import createHistory from 'history/createMemoryHistory';
-import { NOT_FOUND } from 'redux-first-router';
+import { LocationState, NOT_FOUND } from 'redux-first-router';
 
 import configureStore from '../../client/store';
 
-const doesRedirect = ({ kind, pathname }, res) => {
+const doesRedirect = ({ kind, pathname }: LocationState, res: Response) => {
   if (kind === 'redirect') {
     res.redirect(302, pathname);
     return true;
   }
 };
 
-export default async (req, res) => {
+export default async (req: Request, res: Response) => {
   const history = createHistory({ initialEntries: [req.path] });
   const { store, thunk } = configureStore(history);
 

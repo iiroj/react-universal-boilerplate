@@ -1,4 +1,5 @@
-import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
+import { History } from 'history';
+import { StoreEnhancer, createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction';
 import { connectRoutes } from 'redux-first-router';
 
@@ -9,9 +10,9 @@ const state = {
   page
 };
 
-const composeEnhancers = (...args) => (typeof window !== 'undefined' ? composeWithDevTools(...args) : compose(...args));
+const composeEnhancers = (...args: Function[]): StoreEnhancer<any, {}> => (typeof window !== 'undefined' ? composeWithDevTools(...args) : compose(...args));
 
-export default (history, preLoadedState, sagaContext) => {
+export default (history: History, preLoadedState: Object) => {
   const { reducer, middleware, enhancer, thunk } = connectRoutes(history, routes);
 
   const rootReducer = combineReducers({ ...state, location: reducer });

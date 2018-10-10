@@ -1,11 +1,14 @@
+import { Stats } from 'webpack'; 
+import { Response } from 'express';
+
 import paths from '../../../config/paths';
 import config from '../config';
 
 const { isProduction } = config;
 
-let state = undefined;
+let state: Stats.ToJsonOptions | undefined;
 
-export default res => {
+export default (res: Response) => {
   if (isProduction && state) {
     return state;
   }

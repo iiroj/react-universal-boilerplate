@@ -11,10 +11,10 @@ import App from './components/App';
 
 const renderer = process.env.NODE_ENV === 'production' ? ReactDOM.hydrate : ReactDOM.render;
 const history = createHistory();
-const state = JSON.parse(document.getElementById('initial-state').innerHTML);
+const state = JSON.parse(document.getElementById('initial-state')!.innerHTML);
 const store = configureStore(history, state).store;
 
-const render = App =>
+const render = (App: any) =>
   renderer(
     <Provider store={store}>
       <App />

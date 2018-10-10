@@ -1,13 +1,13 @@
-const webpack = require('webpack');
-const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
-const StatsPlugin = require('stats-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+import * as webpack from 'webpack';
+import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
+import StatsPlugin from 'stats-webpack-plugin';
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 
-const paths = require('./paths');
+import paths from './paths';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
-const config = {
+const config: webpack.Configuration = {
   mode: isProduction ? 'production' : 'development',
 
   devtool: isProduction ? 'source-map' : 'eval',
@@ -24,13 +24,13 @@ const config = {
   },
 
   resolve: {
-    extensions: ['.js']
+    extensions: ['.js', '.ts', '.tsx']
   },
 
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.tsx?$/,
         include: paths.clientSrc,
         use: {
           loader: require.resolve('babel-loader'),
@@ -44,7 +44,6 @@ const config = {
 
   plugins: [
     new CaseSensitivePathsPlugin(),
-    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(isProduction ? 'production' : 'development')
@@ -92,9 +91,8 @@ if (isProduction) {
 
   config.plugins.push(new StatsPlugin('stats.json', { chunkModules: true }));
 } else {
-  config.entry.client.unshift('webpack-hot-middleware/client?reload=true&overlayWarnings=true');
+  (config as any).entry.client.unshift('webpack-hot-middleware/client?reload=true&overlayWarnings=true');
   config.plugins.push(
-    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
   );

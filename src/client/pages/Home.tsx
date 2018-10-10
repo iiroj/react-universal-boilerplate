@@ -1,8 +1,8 @@
 import { css } from 'emotion';
 import React from 'react';
 import Head from 'react-helmet';
-import PropTypes from 'prop-types';
 
+import { Route } from '../routes';
 import Button from '../components/Button';
 
 const title = css({
@@ -11,7 +11,11 @@ const title = css({
   marginBottom: '2rem'
 });
 
-const Home = ({ page }) => (
+type Home = {
+  page: Route
+}
+
+export default ({ page }: Home) => (
   <>
     <Head>
       <title>{page.title}</title>
@@ -25,12 +29,3 @@ const Home = ({ page }) => (
     </main>
   </>
 );
-
-Home.propTypes = {
-  page: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    path: PropTypes.string.isRequired
-  }).isRequired
-};
-
-export default Home;

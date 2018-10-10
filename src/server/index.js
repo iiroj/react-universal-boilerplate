@@ -1,9 +1,15 @@
-import config from './config';
-import app from './app';
+require('@babel/register')({
+  extensions: ['.js', '.ts', '.tsx']
+});
 
-const { port } = config;
+const config = require('./config').default;
+const app = require('./app').default;
+
+const { port, version } = config;
+
+console.log(`Starting app version ${version}`);
 
 app.listen(port, () => {
-  // eslint-disable-next-line no-console
-  console.log(`Listening on port ${port}`, JSON.stringify(config, null, 2));
+  console.log(`App listening on port ${port}`);
+  console.log(`App configuration: `, JSON.stringify(config, null, 2));
 });
