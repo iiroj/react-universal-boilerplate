@@ -12,7 +12,7 @@ const state = {
 
 const composeEnhancers = (...args: Function[]): StoreEnhancer<any, {}> => (typeof (window as  Window | undefined) !== 'undefined' ? composeWithDevTools(...args) : compose(...args));
 
-export default (history: History, preLoadedState: Object) => {
+export default (history: History, preLoadedState: Object = {}) => {
   const { reducer, middleware, enhancer, thunk } = connectRoutes(history, routes);
 
   const rootReducer = combineReducers({ ...state, location: reducer });

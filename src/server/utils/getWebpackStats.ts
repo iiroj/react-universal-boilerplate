@@ -6,7 +6,7 @@ import config from '../config';
 
 const { isProduction } = config;
 
-let state: Stats.ToJsonOptions | undefined;
+let state: Stats;
 
 export default (res: Response) => {
   if (isProduction && state) {

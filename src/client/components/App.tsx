@@ -7,8 +7,8 @@ import Layout from './Layout';
 import UniversalComponent from './UniversalComponent';
 
 type Props = {
-  location: LocationState;
-  page: Route;
+  location?: LocationState;
+  page?: Route;
 };
 
 type State = {
@@ -33,14 +33,14 @@ class App extends React.Component<Props, State> {
   render() {
     const { page } = this.props;
 
-    const src = () => import(`../pages/${page.component}`);
+    const src = () => import(`../pages/${page!.component}`);
     
     return (
       <Layout>
         <UniversalComponent
           onBefore={this.setLoading}
           onAfter={this.setNotLoading}
-          page={page}
+          page={page!}
           src={src}
         />
       </Layout>
