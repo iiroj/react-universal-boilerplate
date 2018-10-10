@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.1.0"></a>
+# [3.1.0](https://gitlab.com/iiroj/react-universal-boilerplate/compare/v3.0.0...v3.1.0) (2018-10-10)
+
+
+### Bug Fixes
+
+* Fix typechecking issues ([843625d](https://gitlab.com/iiroj/react-universal-boilerplate/commit/843625d))
+
+
+### Features
+
+* Add fork-ts-checker-webpack-plugin ([f5c16ab](https://gitlab.com/iiroj/react-universal-boilerplate/commit/f5c16ab))
+
+
+
 <a name="3.0.0"></a>
 # [3.0.0](https://gitlab.com/iiroj/react-universal-boilerplate/compare/v2.1.2...v3.0.0) (2018-10-10)
 
