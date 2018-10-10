@@ -7,7 +7,7 @@ const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 const paths = {
   build: resolveApp('build'),
   static: resolveApp('build/static'),
-  clientEntry: resolveApp('src/client/index.js'),
+  clientEntry: resolveApp('src/client/index.tsx'),
   clientSrc: resolveApp('src/client'),
   dotenv: resolveApp('.env'),
   nodeModules: resolveApp('node_modules'),
@@ -15,7 +15,8 @@ const paths = {
   publicPath: resolveApp('public'),
   root: resolveApp(''),
   serverEntry: resolveApp('src/server/index.js'),
-  serverSrc: resolveApp('src/server/index.js')
+  serverSrc: resolveApp('src/server')
 };
 
 module.exports = paths;
+ 

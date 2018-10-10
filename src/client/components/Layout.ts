@@ -1,19 +1,14 @@
 import FontFaceObserver from 'fontfaceobserver';
 import React from 'react';
+import reset from 'react-style-reset';
 import { injectGlobal } from 'emotion';
-import reset from 'css-wipe/js';
-import PropTypes from 'prop-types';
 
 const plex300 = new FontFaceObserver('IBM Plex Sans', { weight: 300 });
 const plex600 = new FontFaceObserver('IBM Plex Sans', { weight: 600 });
 
 export default class Layout extends React.PureComponent {
-  static propTypes = {
-    children: PropTypes.any.isRequired
-  };
-
   componentDidMount() {
-    Promise.all([plex300.load(), plex600.load()]);
+    Promise.all([plex300.load(), plex600.load()]).catch();
   }
 
   render() {
@@ -72,6 +67,7 @@ injectGlobal(
     },
 
     '*': {
+      boxSizing: 'border-box',
       lineHeight: '2rem'
     },
 

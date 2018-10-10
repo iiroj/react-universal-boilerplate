@@ -1,8 +1,8 @@
 import { css } from 'emotion';
 import React from 'react';
-import PropTypes from 'prop-types';
 import Head from 'react-helmet';
 
+import { Route } from '../routes';
 import Button from '../components/Button';
 
 const h1 = css({
@@ -15,7 +15,11 @@ const h2 = css({
   marginBottom: '2rem'
 });
 
-const NotFound = ({ page }) => (
+type NotFound = {
+  page: Route
+}
+
+export default ({ page }: NotFound) => (
   <>
     <Head>
       <title>{page.title}</title>
@@ -29,12 +33,3 @@ const NotFound = ({ page }) => (
     </main>
   </>
 );
-
-NotFound.propTypes = {
-  page: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    path: PropTypes.string.isRequired
-  }).isRequired
-};
-
-export default NotFound;

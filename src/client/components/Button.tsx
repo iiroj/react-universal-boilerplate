@@ -1,7 +1,6 @@
 import { css, cx } from 'emotion';
 import React from 'react';
-import PropTypes from 'prop-types';
-import Link from 'redux-first-router-link';
+import Link, { To } from 'redux-first-router-link';
 
 const button = css({
   backgroundColor: 'white',
@@ -29,7 +28,15 @@ const button = css({
   }
 });
 
-const Button = ({ children, className, href, to, ...rest }) =>
+type Button = {
+  children: any;
+  className?: string;
+  href?: string;
+  to?: To;
+  [key: string]: any;
+}
+
+const Button = ({ children, className, href, to, ...rest }: Button) =>
   to ? (
     <Link className={cx(button, className)} to={to} tabIndex={0} role="button" {...rest}>
       {children}
@@ -39,17 +46,5 @@ const Button = ({ children, className, href, to, ...rest }) =>
       {children}
     </a>
   );
-
-Button.propTypes = {
-  children: PropTypes.any.isRequired,
-  className: PropTypes.string,
-  href: PropTypes.string,
-  to: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.shape({
-      type: PropTypes.string.isRequired
-    })
-  ])
-};
 
 export default Button;

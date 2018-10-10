@@ -14,10 +14,9 @@ applyMiddleware(app);
 
 const renderer = isProduction ? withCache(render) : render;
 
-if (isProduction) {
-} else {
+if (!isProduction) {
   const webpack = require('webpack');
-  const webpackConfig = require('../../config/webpack.config.js');
+  const webpackConfig = require('../../config/webpack.config.ts');
   const compiler = webpack(webpackConfig);
 
   app.use(
@@ -44,7 +43,7 @@ app.use(
 
 app.use('/', express.static(paths.publicPath));
 
-app.get('/ping', (req, res) => {
+app.get('/ping', (_req, res) => {
   res.json({ version });
 });
 

@@ -1,3 +1,4 @@
+import { Application } from 'express';
 import compression from 'compression';
 import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
@@ -7,7 +8,7 @@ import morgan from 'morgan';
 
 import config from '../config';
 
-export default app => {
+export default (app: Application) => {
   app.set('trust proxy', true);
   app.use(cookieParser());
   app.use(
@@ -22,7 +23,7 @@ export default app => {
     app.enable('etag');
     app.use(compression());
     app.use(helmet());
-    app.use(helmet.hsts({ includeSubDomains: false }));
+    app.use(helmet.hsts({ includeSubdomains: false }));
 
     app.use(
       helmet.contentSecurityPolicy({
