@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
+    "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
-    "declaration": true,
+    "declaration": false,
     "jsx": "react",
     "lib": ["dom", "es6"],
     "module": "commonjs",
@@ -11,7 +12,9 @@
     "noUnusedParameters": true,
     "pretty": true,
     "strict": true,
-    "target": "es5"
+    "target": "es5",
+    "typeRoots": ["types"]
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["./config/paths.js", "./src/dev.js", "./babel.config.js"]
 }

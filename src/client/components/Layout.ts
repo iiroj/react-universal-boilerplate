@@ -8,7 +8,7 @@ const plex600 = new FontFaceObserver('IBM Plex Sans', { weight: 600 });
 
 export default class Layout extends React.PureComponent {
   componentDidMount() {
-    Promise.all([plex300.load(), plex600.load()]);
+    Promise.all([plex300.load(), plex600.load()]).catch();
   }
 
   render() {

@@ -38,10 +38,8 @@ module.exports = api => {
     plugins.push(['babel-plugin-universal-import', { babelServer: true }]);
   }
 
-  const config = {
+  return {
     presets: [['@babel/preset-env', babelEnvOptions], '@babel/preset-typescript', '@babel/preset-react'],
     plugins
   };
-
-  return config;
 };

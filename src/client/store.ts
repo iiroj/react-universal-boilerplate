@@ -10,7 +10,7 @@ const state = {
   page
 };
 
-const composeEnhancers = (...args: Function[]): StoreEnhancer<any, {}> => (typeof window !== 'undefined' ? composeWithDevTools(...args) : compose(...args));
+const composeEnhancers = (...args: Function[]): StoreEnhancer<any, {}> => (typeof (window as  Window | undefined) !== 'undefined' ? composeWithDevTools(...args) : compose(...args));
 
 export default (history: History, preLoadedState: Object) => {
   const { reducer, middleware, enhancer, thunk } = connectRoutes(history, routes);

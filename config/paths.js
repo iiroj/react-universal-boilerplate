@@ -1,8 +1,8 @@
-import path from 'path';
-import fs from 'fs';
+const path = require('path');
+const fs = require('fs');
 
 const appDirectory = fs.realpathSync(process.cwd());
-const resolveApp = (relativePath: string) => path.resolve(appDirectory, relativePath);
+const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
 const paths = {
   build: resolveApp('build'),
@@ -18,5 +18,5 @@ const paths = {
   serverSrc: resolveApp('src/server')
 };
 
-export default paths;
+module.exports = paths;
  

@@ -1,9 +1,5 @@
-require('@babel/register')({
-  extensions: ['.js', '.ts', '.tsx']
-});
-
-const config = require('./config').default;
-const app = require('./app').default;
+import config from './config';
+import app from './app';
 
 const { port, version } = config;
 
