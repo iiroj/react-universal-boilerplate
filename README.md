@@ -21,7 +21,7 @@
   <br/>
 </div>
 
-The code contains the bare minimum setup to have a "working" application. For example, a single redux saga has been set up, but it's not really in use. There's some styling done with emotion, as an example.
+This reposity contains a bare minimum starter setup to have a working application.
 
 Feel free to clone/fork this repository and build upon it.
 
@@ -30,7 +30,7 @@ Feel free to clone/fork this repository and build upon it.
 This project uses the latest and greatest for lazy-loading pages and code-splitting. You should read the listed packages' readmes to learn more:
 
 * [TypeScript](https://www.typescriptlang.org) — TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.
-* [react](https://github.com/facebook/react) — the basis
+* [react](https://github.com/facebook/react) — A JavaScript library for building user interfaces
 * [redux](https://github.com/reduxjs/redux) — state management
 * [immer](https://github.com/mweststrate/immer) — handling immutable state
 * [redux-saga](https://github.com/redux-saga/redux-saga) — side-effects for redux
