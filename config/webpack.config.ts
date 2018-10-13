@@ -1,7 +1,6 @@
 import * as webpack from 'webpack';
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 import StatsPlugin from 'stats-webpack-plugin';
-import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
 import paths from './paths';
@@ -36,7 +35,7 @@ const config: webpack.Configuration = {
         use: {
           loader: require.resolve('babel-loader'),
           options: {
-            envName: isProduction ? 'client_production' : 'client_development'
+            envName: isProduction ? 'webpack_production' : 'webpack_development'
           }
         }
       }
@@ -79,21 +78,6 @@ const config: webpack.Configuration = {
 };
 
 if (isProduction) {
-  config.optimization.minimizer = [
-    new UglifyJsPlugin({
-      cache: true,
-      parallel: true,
-      sourceMap: true,
-      uglifyOptions: {
-        mangle: true,
-        output: {
-          beautify: false,
-          comments: false
-        }
-      }
-    })
-  ];
-
   config.plugins.push(new StatsPlugin('stats.json', { chunkModules: true }));
 } else {
   (config as any).entry.client.unshift('webpack-hot-middleware/client?reload=true&overlayWarnings=true');
