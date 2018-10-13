@@ -12,8 +12,8 @@ import flushChunks from 'webpack-flush-chunks';
 import StaticImportedApp from '../../client/components/App';
 import config from '../config';
 
-import getWebpackStats from './getWebpackStats';
-import configureStore from './configureStore';
+import getWebpackStats from './webpack-stats';
+import configureStore from './store';
 
 let App = StaticImportedApp;
 
