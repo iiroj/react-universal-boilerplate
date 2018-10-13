@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.3.0"></a>
+# [3.3.0](https://gitlab.com/iiroj/react-universal-boilerplate/compare/v3.2.1...v3.3.0) (2018-10-13)
+
+
+### Features
+
+* Use babel-preset-minify instead of uglify-js ([be7d0ec](https://gitlab.com/iiroj/react-universal-boilerplate/commit/be7d0ec))
+
+
+
 <a name="3.2.1"></a>
 ## [3.2.1](https://gitlab.com/iiroj/react-universal-boilerplate/compare/v3.2.0...v3.2.1) (2018-10-13)
 
