@@ -1,10 +1,10 @@
-import { LocationState } from 'redux-first-router';
-import React from 'react';
-import { connect } from 'react-redux';
+import { LocationState } from "redux-first-router";
+import React from "react";
+import { connect } from "react-redux";
 
-import { Route } from '../routes';
-import Layout from './Layout';
-import UniversalComponent from './UniversalComponent';
+import { Route } from "../routes";
+import Layout from "./Layout";
+import UniversalComponent from "./UniversalComponent";
 
 type Props = {
   location?: LocationState;
@@ -34,7 +34,7 @@ class App extends React.Component<Props, State> {
     const { page } = this.props;
 
     const src = () => import(`../pages/${page!.component}`);
-    
+
     return (
       <Layout>
         <UniversalComponent

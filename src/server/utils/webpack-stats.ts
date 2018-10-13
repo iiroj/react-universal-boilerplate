@@ -1,8 +1,8 @@
-import { Stats } from 'webpack'; 
-import { Response } from 'express';
+import { Stats } from "webpack";
+import { Response } from "express";
 
-import paths from '../../paths';
-import config from '../config';
+import paths from "../../paths";
+import config from "../config";
 
 const { isProduction } = config;
 

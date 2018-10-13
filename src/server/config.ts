@@ -1,6 +1,6 @@
-import dotEnv from 'dotenv';
+import dotEnv from "dotenv";
 
-const isProduction = process.env.NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV === "production";
 
 if (!isProduction) {
   dotEnv.config();

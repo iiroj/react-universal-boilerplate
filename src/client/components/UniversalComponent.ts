@@ -1,6 +1,6 @@
-import universal, { ComponentType, Module } from 'react-universal-component';
+import universal, { ComponentType, Module } from "react-universal-component";
 
-import { Route } from '../routes';
+import { Route } from "../routes";
 
 const options = {
   ignoreBabelRename: true,
@@ -10,8 +10,11 @@ const options = {
 type UniversalComponent = {
   page: Route;
   src: () => PromiseLike<Module<ComponentType<UniversalComponent>>>;
-}
+};
 
-const UniversalComponent = universal(({ src }: UniversalComponent) => src(), options);
+const UniversalComponent = universal(
+  ({ src }: UniversalComponent) => src(),
+  options
+);
 
 export default UniversalComponent;

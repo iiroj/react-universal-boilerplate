@@ -6,13 +6,13 @@ export type Route = {
 
 export type Routes = {
   [key: string]: Route;
-}
+};
 
 const routes: Routes = {
   HOME: {
-    path: '/',
-    title: 'React Universal Boilerplate',
-    component: 'Home'
+    path: "/",
+    title: "React Universal Boilerplate",
+    component: "Home"
   }
 };
 

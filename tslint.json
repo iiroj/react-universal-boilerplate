@@ -8,6 +8,7 @@
   ],
   "rules": {
     "no-unused-variable": false,
-    "jsx-no-multiline-js": false
+    "jsx-no-multiline-js": false,
+    "prettier": true
   }
 }

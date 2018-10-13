@@ -1,23 +1,23 @@
-import { css } from 'emotion';
-import React from 'react';
-import Head from 'react-helmet';
+import { css } from "emotion";
+import React from "react";
+import Head from "react-helmet";
 
-import { Route } from '../routes';
-import Button from '../components/Button';
+import { Route } from "../routes";
+import Button from "../components/Button";
 
 const h1 = css({
-  fontSize: '3rem',
-  marginBottom: '1rem'
+  fontSize: "3rem",
+  marginBottom: "1rem"
 });
 
 const h2 = css({
   lineHeight: 1,
-  marginBottom: '2rem'
+  marginBottom: "2rem"
 });
 
 type NotFound = {
-  page: Route
-}
+  page: Route;
+};
 
 export default ({ page }: NotFound) => (
   <>
