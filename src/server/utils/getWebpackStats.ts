@@ -1,7 +1,7 @@
 import { Stats } from 'webpack'; 
 import { Response } from 'express';
 
-import paths from '../../../config/paths';
+import paths from '../../paths';
 import config from '../config';
 
 const { isProduction } = config;

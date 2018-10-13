@@ -1,6 +1,6 @@
 import express from 'express';
 
-import paths from '../../config/paths';
+import paths from '../paths';
 
 import config from './config';
 import applyMiddleware from './services/middleware';
@@ -16,7 +16,7 @@ const renderer = isProduction ? withCache(render) : render;
 
 if (!isProduction) {
   const webpack = require('webpack');
-  const webpackConfig = require('../../config/webpack.config.ts');
+  const webpackConfig = require('../../webpack.config.ts');
   const compiler = webpack(webpackConfig);
 
   app.use(

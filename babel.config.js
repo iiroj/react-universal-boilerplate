@@ -1,11 +1,18 @@
 module.exports = api => {
   const env = api.env();
-  const isProduction = env === 'client_production' || env === 'server_production';
+  const isProduction = env.endsWith("production");
 
-  const babelEnvOptions = {
+  const presetEnv = {
     loose: true,
-    shippedProposals: true
+    shippedProposals: true,
+    useBuiltIns: "entry"
   };
+
+  const presets = [
+    ["@babel/preset-env", presetEnv],
+    "@babel/preset-typescript",
+    "@babel/preset-react"
+  ];
 
   const plugins = [
     ['@babel/plugin-proposal-export-namespace-from'],
@@ -22,24 +29,18 @@ module.exports = api => {
     ]
   ];
 
-  if (env.includes('client')) {
-    babelEnvOptions.modules = false;
-    babelEnvOptions.useBuiltIns = 'entry';
-    babelEnvOptions.targets = {
-      browsers: ['Last 2 versions', 'IE >= 11']
-    };
-    plugins.push('babel-plugin-universal-import');
+  if (env.startsWith('webpack')) {
+    presetEnv.modules = false;
+    plugins.push("babel-plugin-universal-import");
   }
 
-  if (env.includes('server')) {
-    babelEnvOptions.targets = {
-      node: 'current'
+  if (env.startsWith("node")) {
+    presetEnv.modules = "commonjs";
+    presetEnv.targets = {
+      node: "current"
     };
-    plugins.push(['babel-plugin-universal-import', { babelServer: true }]);
+    plugins.push(["babel-plugin-universal-import", { babelServer: true }]);
   }
 
-  return {
-    presets: [['@babel/preset-env', babelEnvOptions], '@babel/preset-typescript', '@babel/preset-react'],
-    plugins
-  };
+  return { presets, plugins };
 };

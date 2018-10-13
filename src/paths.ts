@@ -1,10 +1,10 @@
-const path = require('path');
-const fs = require('fs');
+import * as path from 'path';
+import * as fs from 'fs';
 
 const appDirectory = fs.realpathSync(process.cwd());
-const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
+const resolveApp = (relativePath: string) => path.resolve(appDirectory, relativePath);
 
-const paths = {
+export default {
   build: resolveApp('build'),
   static: resolveApp('build/static'),
   clientEntry: resolveApp('src/client/index.tsx'),
@@ -17,6 +17,3 @@ const paths = {
   serverEntry: resolveApp('src/server/index.js'),
   serverSrc: resolveApp('src/server')
 };
-
-module.exports = paths;
- 
