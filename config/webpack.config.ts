@@ -49,13 +49,11 @@ const config: webpack.Configuration = {
       async: !isProduction
     }),
     new CaseSensitivePathsPlugin(),
+    new webpack.HashedModuleIdsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(isProduction ? 'production' : 'development')
       }
-    }),
-    new webpack.optimize.MinChunkSizePlugin({
-      minChunkSize: 25600
     }),
   ],
 
@@ -63,18 +61,17 @@ const config: webpack.Configuration = {
     runtimeChunk: 'single',
     splitChunks: {
       cacheGroups: {
-        commons: {
+        client: {
           chunks: 'initial',
-          maxInitialRequests: 5,
-          minSize: 0,
-          minChunks: 2
+          minChunks: 2,
+          name: 'client'
         },
         vendor: {
-          test: /node_modules/,
           chunks: 'initial',
+          enforce: true,
           name: 'vendor',
           priority: 10,
-          enforce: true
+          test: /node_modules/
         }
       }
     }
