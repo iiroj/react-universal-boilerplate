@@ -1,6 +1,6 @@
 {
   "name": "react-universal-boilerplate",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "An example TypeScript React/Redux application with SSR and code-splitting.",
   "license": "MIT",
   "author": "Iiro Jäppinen <iiro@jappinen.fi> (https://iiro.fi)",

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.2.1"></a>
+## [3.2.1](https://gitlab.com/iiroj/react-universal-boilerplate/compare/v3.2.0...v3.2.1) (2018-10-13)
+
+
+### Bug Fixes
+
+* MinChunkSizePlugin broke SSR ([9bf4504](https://gitlab.com/iiroj/react-universal-boilerplate/commit/9bf4504))
+
+
+
 <a name="3.2.0"></a>
 # [3.2.0](https://gitlab.com/iiroj/react-universal-boilerplate/compare/v3.1.2...v3.2.0) (2018-10-13)
 
