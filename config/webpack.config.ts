@@ -53,7 +53,10 @@ const config: webpack.Configuration = {
       'process.env': {
         NODE_ENV: JSON.stringify(isProduction ? 'production' : 'development')
       }
-    })
+    }),
+    new webpack.optimize.MinChunkSizePlugin({
+      minChunkSize: 25600
+    }),
   ],
 
   optimization: {
