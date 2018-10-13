@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.2.0"></a>
+# [3.2.0](https://gitlab.com/iiroj/react-universal-boilerplate/compare/v3.1.2...v3.2.0) (2018-10-13)
+
+
+### Features
+
+* Cache only status 200 pages, not 404 or 500 ([a338882](https://gitlab.com/iiroj/react-universal-boilerplate/commit/a338882))
+* Upgrade to redux-first-router 2.0.0 ([0cdf07b](https://gitlab.com/iiroj/react-universal-boilerplate/commit/0cdf07b))
+* Use terser instead of uglify-js ([a444efb](https://gitlab.com/iiroj/react-universal-boilerplate/commit/a444efb))
+
+
+
 <a name="3.1.2"></a>
 ## [3.1.2](https://gitlab.com/iiroj/react-universal-boilerplate/compare/v3.1.1...v3.1.2) (2018-10-11)
 
