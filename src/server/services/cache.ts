@@ -1,16 +1,21 @@
-import { NextFunction, Request, Response } from 'express';
-import Hash from 'node-object-hash';
-import cache from 'memory-cache';
+import { NextFunction, Request, Response } from "express";
+import Hash from "node-object-hash";
+import cache from "memory-cache";
 
-import config from '../config';
+import config from "../config";
 
 const htmlCache = new cache.Cache();
 
-const getCacheKey = ({ path, query, cookies }: Request) => Hash().hash({ path, query, cookies });
+const getCacheKey = ({ path, query, cookies }: Request) =>
+  Hash().hash({ path, query, cookies });
 
-type Renderer = (req: Request, res: Response) => Promise<string>;
+type Renderer = (req: Request, res: Response) => Promise<string | undefined>;
 
-export default (renderer: Renderer) => async (req: Request, res: Response, next: NextFunction) => {
+export default (renderer: Renderer) => async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   const key = getCacheKey(req);
 
   try {
@@ -21,7 +26,10 @@ export default (renderer: Renderer) => async (req: Request, res: Response, next:
     }
 
     const html = await renderer(req, res);
-    htmlCache.put(key, html, config.renderCacheTTL);
+
+    if (html && res.statusCode === 200) {
+      htmlCache.put(key, html, config.renderCacheTTL);
+    }
 
     return html;
   } catch (error) {

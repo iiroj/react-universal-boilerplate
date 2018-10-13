@@ -22,9 +22,7 @@ export default async (req: Request, res: Response) => {
   location = store.getState().location;
   if (doesRedirect(location, res)) return false;
 
-  if (location.type === NOT_FOUND) {
-    res.status(404);
-  }
+  res.status(location.type === NOT_FOUND ? 404 : 200);
 
   return store;
 };
