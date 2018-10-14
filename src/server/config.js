@@ -7,7 +7,7 @@ if (!isProduction) {
 }
 
 export default {
-  renderCacheTTL: parseInt(process.env.RENDER_CACHE_TTL || "600", 10),
+  renderCacheTTL: parseInt(process.env.RENDER_CACHE_TTL || "600", 10) * 1000,
   isProduction,
   port: process.env.PORT || 3000,
   version: process.env.VERSION
