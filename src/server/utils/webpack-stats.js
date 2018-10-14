@@ -1,14 +1,11 @@
-import { Stats } from "webpack";
-import { Response } from "express";
-
 import paths from "../../paths";
 import config from "../config";
 
 const { isProduction } = config;
 
-let state: Stats;
+let state;
 
-export default (res: Response) => {
+export default res => {
   if (isProduction && state) {
     return state;
   }

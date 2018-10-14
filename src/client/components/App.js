@@ -1,21 +1,10 @@
-import { LocationState } from "redux-first-router";
 import React from "react";
 import { connect } from "react-redux";
 
-import { Route } from "../routes";
 import Layout from "./Layout";
 import UniversalComponent from "./UniversalComponent";
 
-type Props = {
-  location?: LocationState;
-  page?: Route;
-};
-
-type State = {
-  loading: boolean;
-};
-
-class App extends React.Component<Props, State> {
+class App extends React.Component {
   state = {
     loading: false
   };
@@ -24,7 +13,7 @@ class App extends React.Component<Props, State> {
 
   setNotLoading = () => this.setState({ loading: false });
 
-  componentDidUpdate(prevProps: Props) {
+  componentDidUpdate(prevProps) {
     if (this.props.location !== prevProps.location) {
       window.scrollTo(0, 0);
     }
@@ -33,14 +22,14 @@ class App extends React.Component<Props, State> {
   render() {
     const { page } = this.props;
 
-    const src = () => import(`../pages/${page!.component}`);
+    const src = () => import(`../pages/${page.component}`);
 
     return (
       <Layout>
         <UniversalComponent
           onBefore={this.setLoading}
           onAfter={this.setNotLoading}
-          page={page!}
+          page={page}
           src={src}
         />
       </Layout>

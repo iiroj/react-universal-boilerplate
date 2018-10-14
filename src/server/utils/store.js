@@ -1,17 +1,15 @@
-import { Request, Response } from "express";
-
-import { LocationState, NOT_FOUND } from "redux-first-router";
+import { NOT_FOUND } from "redux-first-router";
 
 import configureStore from "../../client/store";
 
-const doesRedirect = ({ kind, pathname }: LocationState, res: Response) => {
+const doesRedirect = ({ kind, pathname }, res) => {
   if (kind === "redirect") {
     res.redirect(302, pathname);
     return true;
   }
 };
 
-export default async (req: Request, res: Response) => {
+export default async (req, res) => {
   const { store, thunk } = configureStore({}, [req.path]);
 
   let location = store.getState().location;

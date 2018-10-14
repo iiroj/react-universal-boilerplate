@@ -2,7 +2,6 @@ import { css } from "emotion";
 import React from "react";
 import Head from "react-helmet";
 
-import { Route } from "../routes";
 import Button from "../components/Button";
 
 const h1 = css({
@@ -15,11 +14,7 @@ const h2 = css({
   marginBottom: "2rem"
 });
 
-type NotFound = {
-  page: Route;
-};
-
-export default ({ page }: NotFound) => (
+export default ({ page }) => (
   <>
     <Head>
       <title>{page.title}</title>

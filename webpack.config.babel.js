@@ -1,5 +1,4 @@
-import * as webpack from "webpack";
-import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
+import webpack from "webpack";
 import CaseSensitivePathsPlugin from "case-sensitive-paths-webpack-plugin";
 import TerserPlugin from "terser-webpack-plugin";
 import StatsPlugin from "stats-webpack-plugin";
@@ -8,7 +7,7 @@ import paths from "./src/paths";
 
 const isProduction = process.env.NODE_ENV === "production";
 
-const config: webpack.Configuration = {
+const config = {
   mode: isProduction ? "production" : "development",
 
   devtool: isProduction ? "source-map" : "eval",
@@ -26,14 +25,10 @@ const config: webpack.Configuration = {
     publicPath: "/"
   },
 
-  resolve: {
-    extensions: [".js", ".ts", ".tsx"]
-  },
-
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.js$/,
         include: paths.clientSrc,
         use: {
           loader: require.resolve("babel-loader"),
@@ -46,10 +41,6 @@ const config: webpack.Configuration = {
   },
 
   plugins: [
-    new ForkTsCheckerWebpackPlugin({
-      tslint: true,
-      async: !isProduction
-    }),
     new CaseSensitivePathsPlugin(),
     new webpack.HashedModuleIdsPlugin(),
     new webpack.DefinePlugin({
@@ -82,15 +73,15 @@ const config: webpack.Configuration = {
 };
 
 if (isProduction) {
-  config.plugins!.push(
+  config.plugins.push(
     new TerserPlugin({ sourceMap: true }),
     new StatsPlugin("stats.json", { chunkModules: true })
   );
 } else {
-  (config as any).entry.client.unshift(
+  config.entry.client.unshift(
     "webpack-hot-middleware/client?reload=true&overlayWarnings=true"
   );
-  config.plugins!.push(new webpack.HotModuleReplacementPlugin());
+  config.plugins.push(new webpack.HotModuleReplacementPlugin());
 }
 
 module.exports = config;

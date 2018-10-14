@@ -1,4 +1,3 @@
-import { NextFunction, Request, Response } from "express";
 import Hash from "node-object-hash";
 import cache from "memory-cache";
 
@@ -6,16 +5,10 @@ import config from "../config";
 
 const htmlCache = new cache.Cache();
 
-const getCacheKey = ({ path, query, cookies }: Request) =>
+const getCacheKey = ({ path, query, cookies }) =>
   Hash().hash({ path, query, cookies });
 
-type Renderer = (req: Request, res: Response) => Promise<string | undefined>;
-
-export default (renderer: Renderer) => async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
+export default renderer => async (req, res, next) => {
   const key = getCacheKey(req);
 
   try {

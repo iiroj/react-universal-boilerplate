@@ -1,4 +1,3 @@
-import { Request, Response } from "express";
 import React from "react";
 import { renderToString } from "react-dom/server";
 import htmlescape from "htmlescape";
@@ -17,7 +16,7 @@ import configureStore from "./store";
 
 let App = StaticImportedApp;
 
-export default async (req: Request, res: Response) => {
+export default async (req, res) => {
   try {
     if (!config.isProduction) {
       App = require("../../client/components/App").default;

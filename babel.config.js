@@ -8,19 +8,15 @@ module.exports = api => {
     useBuiltIns: "entry"
   };
 
-  const presets = [
-    ["@babel/preset-env", presetEnv],
-    "@babel/preset-typescript",
-    "@babel/preset-react"
-  ];
+  const presets = [["@babel/preset-env", presetEnv], "@babel/preset-react"];
 
   const plugins = [
-    ['@babel/plugin-proposal-export-namespace-from'],
-    ['@babel/plugin-proposal-class-properties'],
-    ['@babel/plugin-syntax-dynamic-import'],
-    ['babel-plugin-transform-export-default-name'],
+    ["@babel/plugin-proposal-export-namespace-from"],
+    ["@babel/plugin-proposal-class-properties"],
+    ["@babel/plugin-syntax-dynamic-import"],
+    ["babel-plugin-transform-export-default-name"],
     [
-      'babel-plugin-emotion',
+      "babel-plugin-emotion",
       {
         autoLabel: !isProduction,
         hoist: isProduction,
@@ -29,7 +25,7 @@ module.exports = api => {
     ]
   ];
 
-  if (env.startsWith('webpack')) {
+  if (env.startsWith("webpack")) {
     presetEnv.modules = false;
     plugins.push("babel-plugin-universal-import");
   }

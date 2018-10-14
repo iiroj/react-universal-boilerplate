@@ -1,10 +1,4 @@
-import {
-  StoreEnhancer,
-  createStore,
-  applyMiddleware,
-  compose,
-  combineReducers
-} from "redux";
+import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension/logOnlyInProduction";
 import { connectRoutes } from "redux-first-router";
 
@@ -15,12 +9,12 @@ const state = {
   page
 };
 
-const composeEnhancers = (...args: Function[]): StoreEnhancer<any, {}> =>
-  typeof (window as Window | undefined) !== "undefined"
+const composeEnhancers = (...args) =>
+  typeof window !== "undefined"
     ? composeWithDevTools(...args)
     : compose(...args);
 
-export default (initialState: Object = {}, initialEntries: Array<string>) => {
+export default (initialState = {}, initialEntries) => {
   const { reducer, middleware, enhancer, thunk } = connectRoutes(routesMap, {
     initialEntries
   });

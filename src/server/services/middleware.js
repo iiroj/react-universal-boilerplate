@@ -1,4 +1,5 @@
-import { Application } from "express";
+/* eslint-disable no-console */
+
 import compression from "compression";
 import cookieParser from "cookie-parser";
 import helmet from "helmet";
@@ -8,7 +9,7 @@ import morgan from "morgan";
 
 import config from "../config";
 
-export default (app: Application) => {
+export default app => {
   app.set("trust proxy", true);
   app.use(cookieParser());
   app.use(

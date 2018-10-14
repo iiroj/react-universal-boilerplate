@@ -16,7 +16,7 @@ const renderer = isProduction ? withCache(render) : render;
 
 if (!isProduction) {
   const webpack = require("webpack");
-  const webpackConfig = require("../../webpack.config.ts");
+  const webpackConfig = require("../../webpack.config.babel.js");
   const compiler = webpack(webpackConfig);
 
   app.use(
@@ -31,7 +31,7 @@ if (!isProduction) {
   // Invalidate renderer's module cache after Webpack Compilation
   compiler.hooks.compilation.tap("done", () => {
     Object.keys(require.cache).forEach(id => {
-      if (/[\/\\]client[\/\\]/.test(id)) delete require.cache[id];
+      if (/[/\\]client[/\\]/.test(id)) delete require.cache[id];
     });
   });
 }

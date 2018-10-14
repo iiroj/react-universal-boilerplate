@@ -1,7 +1,7 @@
 <div align="center">
   <img src="public/favicon_192.png" alt="React Universal Boilerplate" width="64" height="64">
   <h1 align="center">React Universal Boilerplate</h1>
-  <p>An example TypeScript React/Redux application with SSR and code-splitting</p>
+  <p>An example React/Redux application with SSR and code-splitting</p>
   <a href="https://gitlab.com/iiroj/react-universal-boilerplate"><strong>GitLab</strong></a>
   <br/>
   <br/>
@@ -29,7 +29,6 @@ Feel free to clone/fork this repository and build upon it.
 
 This project uses the latest and greatest for lazy-loading pages and code-splitting. You should read the listed packages' readmes to learn more:
 
-* [TypeScript](https://www.typescriptlang.org) — TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.
 * [react](https://github.com/facebook/react) — A JavaScript library for building user interfaces
 * [redux](https://github.com/reduxjs/redux) — state management
 * [immer](https://github.com/mweststrate/immer) — handling immutable state

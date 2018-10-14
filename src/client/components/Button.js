@@ -1,6 +1,6 @@
 import { css, cx } from "emotion";
 import React from "react";
-import Link, { To } from "redux-first-router-link";
+import Link from "redux-first-router-link";
 
 const button = css({
   backgroundColor: "white",
@@ -28,15 +28,7 @@ const button = css({
   }
 });
 
-type Button = {
-  children: any;
-  className?: string;
-  href?: string;
-  to?: To;
-  [key: string]: any;
-};
-
-const Button = ({ children, className, href, to, ...rest }: Button) =>
+const Button = ({ children, className, href, to, ...rest }) =>
   to ? (
     <Link
       className={cx(button, className)}

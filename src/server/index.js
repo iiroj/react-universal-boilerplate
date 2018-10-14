@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import config from "./config";
 import app from "./app";
 

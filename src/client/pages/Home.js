@@ -2,7 +2,6 @@ import { css } from "emotion";
 import React from "react";
 import Head from "react-helmet";
 
-import { Route } from "../routes";
 import Button from "../components/Button";
 
 const title = css({
@@ -11,11 +10,7 @@ const title = css({
   marginBottom: "2rem"
 });
 
-type Home = {
-  page: Route;
-};
-
-export default ({ page }: Home) => (
+export default ({ page }) => (
   <>
     <Head>
       <title>{page.title}</title>
