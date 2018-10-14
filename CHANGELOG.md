@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.0.0"></a>
+# [4.0.0](https://gitlab.com/iiroj/react-universal-boilerplate/compare/v3.2.0...v4.0.0) (2018-10-14)
+
+
+### Features
+
+* Remove TypeScript ([9c2a201](https://gitlab.com/iiroj/react-universal-boilerplate/commit/9c2a201))
+
+
+### BREAKING CHANGES
+
+* Usage of TypeScript has been reverted as being too complicated for such a boilerplate. Please see previous version as an example of how to get it working.
+
+
+
 <a name="3.2.0"></a>
 # [3.2.0](https://gitlab.com/iiroj/react-universal-boilerplate/compare/v3.1.2...v3.2.0) (2018-10-13)
 
