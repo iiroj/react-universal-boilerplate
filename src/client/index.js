@@ -3,6 +3,7 @@ import "@babel/polyfill";
 import ReactDOM from "react-dom";
 import createHistory from "history/createBrowserHistory";
 import React from "react";
+import { HelmetProvider } from "react-helmet-async";
 import { Provider } from "react-redux";
 
 import configureStore from "./store";
@@ -19,7 +20,9 @@ const store = configureStore(history, state).store;
 const render = App =>
   renderer(
     <Provider store={store}>
-      <App />
+      <HelmetProvider>
+        <App />
+      </HelmetProvider>
     </Provider>,
     document.getElementById("root")
   );
