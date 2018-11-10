@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.1.0"></a>
+# [4.1.0](https://gitlab.com/iiroj/react-universal-boilerplate/compare/v4.0.2...v4.1.0) (2018-11-10)
+
+
+### Features
+
+* use react-helmet-async; upgrade packages ([3a61b2b](https://gitlab.com/iiroj/react-universal-boilerplate/commit/3a61b2b))
+
+
+
 <a name="4.0.2"></a>
 ## [4.0.2](https://gitlab.com/iiroj/react-universal-boilerplate/compare/v4.0.1...v4.0.2) (2018-10-29)
 
