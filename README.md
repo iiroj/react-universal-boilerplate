@@ -36,7 +36,7 @@ This project uses the latest and greatest for lazy-loading pages and code-splitt
 * [redux-first-router](https://github.com/faceyspacey/redux-first-router) — routing of pages
 * [react-universal-component](https://github.com/faceyspacey/react-universal-component) — code-splitting and lazy-loading
 * [emotion](https://github.com/emotion-js/emotion) — styling (css-in-js)
-* [react-helmet](https://github.com/nfl/react-helmet) — manipulating the `<head>` from React
+* [react-helmet-async](https://github.com/staylor/react-helmet-async) — manipulating the `<head>` from React
 * [express](https://github.com/expressjs/express) — the server framework
 * [memory-cache](https://github.com/ptarjan/node-cache) — caching rendered pages
 * [webpack-flush-chunks](https://github.com/faceyspacey/webpack-flush-chunks) — deciding which bundles to include on which pages
