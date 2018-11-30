@@ -1,6 +1,5 @@
 import webpack from "webpack";
 import CaseSensitivePathsPlugin from "case-sensitive-paths-webpack-plugin";
-import TerserPlugin from "terser-webpack-plugin";
 import StatsPlugin from "stats-webpack-plugin";
 
 import paths from "./src/paths";
@@ -74,7 +73,6 @@ const config = {
 
 if (isProduction) {
   config.plugins.push(
-    new TerserPlugin({ sourceMap: true }),
     new StatsPlugin("stats.json", { chunkModules: true, defaultSizes: "gzip" })
   );
 } else {
