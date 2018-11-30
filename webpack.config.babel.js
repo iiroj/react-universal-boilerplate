@@ -75,7 +75,7 @@ const config = {
 if (isProduction) {
   config.plugins.push(
     new TerserPlugin({ sourceMap: true }),
-    new StatsPlugin("stats.json", { chunkModules: true })
+    new StatsPlugin("stats.json", { chunkModules: true, defaultSizes: "gzip" })
   );
 } else {
   config.entry.client.unshift(
