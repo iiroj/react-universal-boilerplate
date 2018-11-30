@@ -1,7 +1,7 @@
 import React from "react";
 import { renderToString } from "react-dom/server";
 import htmlescape from "htmlescape";
-import { html } from "common-tags";
+import { minify } from "html-minifier";
 import { renderStylesToString } from "emotion-server";
 import { HelmetProvider } from "react-helmet-async";
 import { Provider } from "react-redux";
@@ -15,6 +15,14 @@ import getWebpackStats from "./webpack-stats";
 import configureStore from "./store";
 
 let App = StaticImportedApp;
+
+const getScriptTags = scripts =>
+  scripts
+    .map(
+      src =>
+        `<script type="text/javascript" src="/${src}" rel="subresource" defer></script>`
+    )
+    .join("\n");
 
 export default async (req, res) => {
   try {
@@ -47,38 +55,34 @@ export default async (req, res) => {
       chunkNames
     });
 
-    return html`
+    return minify(
+      `
       <!DOCTYPE html>
       <html lang="en" ${helmet.htmlAttributes.toString()}>
         <head>
           <meta charset="utf-8" />
           ${helmet.title.toString()}
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-          />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           ${helmet.meta.toString()}
           <link rel="icon" href="/favicon.ico" type="image/x-icon" />
           <link rel="apple-touch-icon" sizes="600x600" href="/icon.png" />
           ${helmet.link.toString()}
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
-          ${
-            scripts.map(
-              src =>
-                `<script type="text/javascript" src="/${src}" rel="subresource" defer></script>`
-            )
-          }
-          <script id="initial-state" type="application/json">
-            ${state}
-          </script>
+          ${getScriptTags(scripts)}
+          <script id="initial-state" type="application/json">${state}</script>
         </head>
         <body ${helmet.bodyAttributes.toString()}>
           <div id="root">${app}</div>
         </body>
       </html>
-    `;
+    `,
+      {
+        collapseWhitespace: true,
+        preserveLineBreaks: true
+      }
+    );
   } catch (error) {
     res.status(500);
     return "Internal Server Error";
