@@ -22,7 +22,7 @@ class App extends React.Component {
   render() {
     const { page } = this.props;
 
-    const src = () => import(`../pages/${page.component}`);
+    const src = () => import(`../views/${page.component}`);
 
     return (
       <Layout>

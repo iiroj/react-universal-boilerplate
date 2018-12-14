@@ -1,4 +1,6 @@
-import { css, cx } from "emotion";
+// @jsx jsx
+
+import { css, jsx } from "@emotion/core";
 import React from "react";
 import Link from "redux-first-router-link";
 
@@ -31,7 +33,7 @@ const button = css({
 const Button = ({ children, className, href, to, ...rest }) =>
   to ? (
     <Link
-      className={cx(button, className)}
+      css={[button, className]}
       to={to}
       tabIndex={0}
       role="button"
@@ -41,7 +43,7 @@ const Button = ({ children, className, href, to, ...rest }) =>
     </Link>
   ) : (
     <a
-      className={cx(button, className)}
+      css={[button, className]}
       href={href}
       tabIndex={0}
       role="button"

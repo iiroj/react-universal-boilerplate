@@ -10,15 +10,13 @@ import configureStore from "./store";
 
 import App from "./components/App";
 
-const renderer =
-  process.env.NODE_ENV === "production" ? ReactDOM.hydrate : ReactDOM.render;
 const history = createHistory();
 const stateNode = document.getElementById("initial-state");
 const state = stateNode ? JSON.parse(stateNode.innerHTML) : {};
 const store = configureStore(history, state).store;
 
 const render = App =>
-  renderer(
+  ReactDOM.hydrate(
     <Provider store={store}>
       <HelmetProvider>
         <App />

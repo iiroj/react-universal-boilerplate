@@ -1,4 +1,5 @@
 import { NOT_FOUND } from "redux-first-router";
+import createHistory from "history/createMemoryHistory";
 
 import configureStore from "../../client/store";
 
@@ -10,14 +11,13 @@ const doesRedirect = ({ kind, pathname }, res) => {
 };
 
 export default async (req, res) => {
-  const { store, thunk } = configureStore({}, [req.path]);
+  const history = createHistory({ initialEntries: [req.path] });
 
-  let location = store.getState().location;
-  if (doesRedirect(location, res)) return false;
+  const { store, initialDispatch } = configureStore(history);
 
-  await thunk(store);
+  initialDispatch();
 
-  location = store.getState().location;
+  const { location } = store.getState();
   if (doesRedirect(location, res)) return false;
 
   res.status(location.type === NOT_FOUND ? 404 : 200);

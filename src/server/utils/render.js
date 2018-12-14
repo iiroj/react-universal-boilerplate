@@ -2,7 +2,6 @@ import React from "react";
 import { renderToString } from "react-dom/server";
 import htmlescape from "htmlescape";
 import { minify } from "html-minifier";
-import { renderStylesToString } from "emotion-server";
 import { HelmetProvider } from "react-helmet-async";
 import { Provider } from "react-redux";
 import { flushChunkNames } from "react-universal-component/server";
@@ -35,14 +34,12 @@ export default async (req, res) => {
     const state = htmlescape(store.getState());
     const helmetContext = {};
 
-    const app = renderStylesToString(
-      renderToString(
-        <Provider store={store}>
-          <HelmetProvider context={helmetContext}>
-            <App />
-          </HelmetProvider>
-        </Provider>
-      )
+    const app = renderToString(
+      <Provider store={store}>
+        <HelmetProvider context={helmetContext}>
+          <App />
+        </HelmetProvider>
+      </Provider>
     );
 
     const { helmet } = helmetContext;
