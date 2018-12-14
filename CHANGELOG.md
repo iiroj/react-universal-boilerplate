@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.2.0"></a>
+# [4.2.0](https://gitlab.com/iiroj/react-universal-boilerplate/compare/v4.1.2...v4.2.0) (2018-12-14)
+
+
+### Features
+
+* use redux-first-router@next and [@emotion](https://gitlab.com/emotion)/core 10 ([1c61b96](https://gitlab.com/iiroj/react-universal-boilerplate/commit/1c61b96))
+
+
+
 <a name="4.1.2"></a>
 ## [4.1.2](https://gitlab.com/iiroj/react-universal-boilerplate/compare/v4.1.1...v4.1.2) (2018-11-30)
 
