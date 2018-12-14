@@ -21,6 +21,7 @@ if (!isProduction) {
 
   app.use(
     require("webpack-dev-middleware")(compiler, {
+      logLevel: "silent",
       publicPath: webpackConfig.output.publicPath,
       serverSideRender: true
     })

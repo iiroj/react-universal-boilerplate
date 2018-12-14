@@ -1,6 +1,7 @@
 import webpack from "webpack";
 import CaseSensitivePathsPlugin from "case-sensitive-paths-webpack-plugin";
 import StatsPlugin from "stats-webpack-plugin";
+import FriendlyErrorsWebpackPlugin from "friendly-errors-webpack-plugin";
 
 import paths from "./src/paths";
 
@@ -79,7 +80,11 @@ if (isProduction) {
   config.entry.client.unshift(
     "webpack-hot-middleware/client?reload=true&overlayWarnings=true"
   );
-  config.plugins.push(new webpack.HotModuleReplacementPlugin());
+  config.plugins.push(
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
+    new FriendlyErrorsWebpackPlugin()
+  );
 }
 
 module.exports = config;
