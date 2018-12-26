@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.2.1"></a>
+## [4.2.1](https://gitlab.com/iiroj/react-universal-boilerplate/compare/v4.2.0...v4.2.1) (2018-12-26)
+
+
+### Bug Fixes
+
+* update for redux-first-router@2 ([9c43b07](https://gitlab.com/iiroj/react-universal-boilerplate/commit/9c43b07))
+
+
+
 <a name="4.2.0"></a>
 # [4.2.0](https://gitlab.com/iiroj/react-universal-boilerplate/compare/v4.1.2...v4.2.0) (2018-12-14)
 
