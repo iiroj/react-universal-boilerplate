@@ -30,7 +30,6 @@ export default async (req, res) => {
     }
 
     const store = await configureStore(req, res);
-    if (!store) return;
     const state = htmlescape(store.getState());
     const helmetContext = {};
 

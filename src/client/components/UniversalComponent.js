@@ -5,6 +5,9 @@ const options = {
   loadingTransition: false
 };
 
-const UniversalComponent = universal(({ src }) => src(), options);
+const UniversalComponent = universal(
+  ({ page }) => import(`../views/${page.view}`),
+  options
+);
 
 export default UniversalComponent;

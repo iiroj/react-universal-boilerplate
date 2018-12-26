@@ -11,7 +11,7 @@ export default (state = routes.HOME, action) => {
       return produce(state, draft => {
         draft.path = meta.location.current.pathname;
         draft.title = "404 — Not Found";
-        draft.component = "NotFound";
+        draft.view = "NotFound";
       });
     default:
       return routes[type] || state;
