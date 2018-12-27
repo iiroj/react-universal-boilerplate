@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.0.0"></a>
+# [5.0.0](https://gitlab.com/iiroj/react-universal-boilerplate/compare/v4.2.2...v5.0.0) (2018-12-27)
+
+
+### Features
+
+* simplify boilerplate by using react-router ([a2b4701](https://gitlab.com/iiroj/react-universal-boilerplate/commit/a2b4701))
+
+
+### BREAKING CHANGES
+
+* This commit removes redux, but then again, adding it on top of this boilerplate is simple enough, along with connected-react-router for example
+
+
+
 <a name="4.2.2"></a>
 ## [4.2.2](https://gitlab.com/iiroj/react-universal-boilerplate/compare/v4.2.1...v4.2.2) (2018-12-26)
 
