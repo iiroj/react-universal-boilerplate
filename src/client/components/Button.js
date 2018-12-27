@@ -1,6 +1,6 @@
 import { css } from "@emotion/core";
+import { Link } from "react-router-dom";
 import React from "react";
-import Link from "redux-first-router-link";
 
 const button = css({
   backgroundColor: "white",

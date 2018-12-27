@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
 
+import bodyParser from "body-parser";
 import compression from "compression";
 import cookieParser from "cookie-parser";
-import helmet from "helmet";
-import bodyParser from "body-parser";
 import cors from "cors";
+import helmet from "helmet";
 import morgan from "morgan";
 
 import config from "../config";

@@ -1,5 +1,5 @@
-import Hash from "node-object-hash";
 import cache from "memory-cache";
+import Hash from "node-object-hash";
 
 import config from "../config";
 

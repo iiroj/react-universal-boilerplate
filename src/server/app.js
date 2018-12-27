@@ -2,10 +2,10 @@ import express from "express";
 
 import paths from "../paths";
 
-import config from "./config";
 import applyMiddleware from "./services/middleware";
-import withCache from "./services/cache";
+import config from "./config";
 import render from "./utils/render";
+import withCache from "./services/cache";
 
 const { isProduction, version } = config;
 

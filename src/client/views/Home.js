@@ -1,6 +1,6 @@
 import { css } from "@emotion/core";
-import React from "react";
 import Head from "react-helmet-async";
+import React from "react";
 
 import Button from "../components/Button";
 
@@ -10,10 +10,10 @@ const buttonContainer = css({
   }
 });
 
-const Home = ({ page }) => (
+const Home = () => (
   <main>
     <Head>
-      <title>{page.title}</title>
+      <title>React Universal Boilerplate</title>
     </Head>
 
     <h1
@@ -23,7 +23,7 @@ const Home = ({ page }) => (
         marginBottom: "2rem"
       })}
     >
-      {page.title}
+      React Universal Boilerplate
     </h1>
     <div css={buttonContainer}>
       <Button

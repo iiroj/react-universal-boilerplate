@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
-import config from "./config";
 import app from "./app";
+import config from "./config";
 
 const { port, version } = config;
 

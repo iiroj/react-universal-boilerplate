@@ -1,33 +1,38 @@
 import { css } from "@emotion/core";
-import React from "react";
 import Head from "react-helmet-async";
+import { withRouter } from "react-router";
+import React from "react";
 
 import Button from "../components/Button";
 
-const NotFound = ({ page }) => (
-  <main>
-    <Head>
-      <title>{page.title}</title>
-    </Head>
+const NotFound = ({ location, staticContext = {} }) => {
+  staticContext.status = 404;
 
-    <h1
-      css={css({
-        fontSize: "3rem",
-        marginBottom: "1rem"
-      })}
-    >
-      {page.title}
-    </h1>
-    <h2
-      css={css({
-        lineHeight: 1,
-        marginBottom: "2rem"
-      })}
-    >
-      The request page <strong>{page.path}</strong> does not exist.
-    </h2>
-    <Button to="/">Go Home</Button>
-  </main>
-);
+  return (
+    <main>
+      <Head>
+        <title>404 — Not Found</title>
+      </Head>
 
-export default NotFound;
+      <h1
+        css={css({
+          fontSize: "3rem",
+          marginBottom: "1rem"
+        })}
+      >
+        404 — Not Found
+      </h1>
+      <h2
+        css={css({
+          lineHeight: 1,
+          marginBottom: "2rem"
+        })}
+      >
+        The request page <strong>{location.pathname}</strong> does not exist.
+      </h2>
+      <Button to="/">Go Home</Button>
+    </main>
+  );
+};
+
+export default withRouter(NotFound);

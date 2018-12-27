@@ -1,2 +1,2 @@
-require("whatwg-fetch");
 require("raf/polyfill");
+require("whatwg-fetch");

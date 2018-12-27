@@ -1,17 +1,46 @@
+import { withRouter } from "react-router";
 import React from "react";
-import { connect } from "react-redux";
 
 import Layout from "./Layout";
+import routes, { NOT_FOUND } from "../routes";
 import UniversalComponent from "./UniversalComponent";
 
-const App = ({ page }) => (
-  <Layout>
-    <UniversalComponent page={page} />
-  </Layout>
-);
+class App extends React.Component {
+  static getDerivedStateFromProps({ location }, state) {
+    const page = routes[location.pathname] || NOT_FOUND;
+    return page === state.page
+      ? null
+      : { page: routes[location.pathname] || NOT_FOUND };
+  }
 
-const mapStateToProps = state => ({
-  page: state.page
-});
+  state = {
+    loading: false,
+    page: routes["/"]
+  };
 
-export default connect(mapStateToProps)(App);
+  setLoading = () => this.setState({ loading: true });
+
+  setNotLoading = () => this.setState({ loading: false });
+
+  componentDidUpdate(prevProps) {
+    if (this.props.location !== prevProps.location) {
+      window.scrollTo(0, 0);
+    }
+  }
+
+  render() {
+    const { page } = this.state;
+
+    return (
+      <Layout>
+        <UniversalComponent
+          onBefore={this.setLoading}
+          onAfter={this.setNotLoading}
+          src={page}
+        />
+      </Layout>
+    );
+  }
+}
+
+export default withRouter(App);

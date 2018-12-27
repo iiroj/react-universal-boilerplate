@@ -1,17 +1,15 @@
-import React from "react";
-import { renderToString } from "react-dom/server";
-import htmlescape from "htmlescape";
-import { minify } from "html-minifier";
-import { HelmetProvider } from "react-helmet-async";
-import { Provider } from "react-redux";
 import { flushChunkNames } from "react-universal-component/server";
+import { HelmetProvider } from "react-helmet-async";
+import { html } from "common-tags";
+import { renderToString } from "react-dom/server";
+import { StaticRouter } from "react-router";
 import flushChunks from "webpack-flush-chunks";
+import React from "react";
 
-import StaticImportedApp from "../../client/components/App";
 import config from "../config";
+import StaticImportedApp from "../../client/components/App";
 
 import getWebpackStats from "./webpack-stats";
-import configureStore from "./store";
 
 let App = StaticImportedApp;
 
@@ -29,17 +27,22 @@ export default async (req, res) => {
       App = require("../../client/components/App").default;
     }
 
-    const store = await configureStore(req, res);
-    const state = htmlescape(store.getState());
+    const routerContext = {};
     const helmetContext = {};
 
     const app = renderToString(
-      <Provider store={store}>
+      <StaticRouter location={req.originalUrl} context={routerContext}>
         <HelmetProvider context={helmetContext}>
           <App />
         </HelmetProvider>
-      </Provider>
+      </StaticRouter>
     );
+
+    const { status, url } = routerContext;
+
+    if (url) {
+      return res.redirect(301, url);
+    }
 
     const { helmet } = helmetContext;
 
@@ -51,8 +54,10 @@ export default async (req, res) => {
       chunkNames
     });
 
-    return minify(
-      `
+    res.status(status === 404 ? 404 : 200);
+
+    /* eslint-disable prettier/prettier */
+    return html`
       <!DOCTYPE html>
       <html lang="en" ${helmet.htmlAttributes.toString()}>
         <head>
@@ -67,18 +72,12 @@ export default async (req, res) => {
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           ${getScriptTags(scripts)}
-          <script id="initial-state" type="application/json">${state}</script>
         </head>
         <body ${helmet.bodyAttributes.toString()}>
           <div id="root">${app}</div>
         </body>
       </html>
-    `,
-      {
-        collapseWhitespace: true,
-        preserveLineBreaks: true
-      }
-    );
+    `.replace(/^\s*$(?:\r\n?|\n)/gm, "");
   } catch (error) {
     res.status(500);
     return "Internal Server Error";

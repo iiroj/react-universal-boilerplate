@@ -1,30 +1,24 @@
 import "@babel/polyfill";
 
-import ReactDOM from "react-dom";
-import React from "react";
+import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-import { Provider } from "react-redux";
-
-import configureStore from "./store";
+import React from "react";
+import ReactDOM from "react-dom";
 
 import App from "./components/App";
 
-const stateNode = document.getElementById("initial-state");
-const state = stateNode ? JSON.parse(stateNode.innerHTML) : {};
-const { store } = configureStore(state);
-
 const render = App =>
   ReactDOM.hydrate(
-    <Provider store={store}>
+    <BrowserRouter>
       <HelmetProvider>
         <App />
       </HelmetProvider>
-    </Provider>,
+    </BrowserRouter>,
     document.getElementById("root")
   );
 
 if (process.env.NODE_ENV === "development" && module.hot) {
-  module.hot.accept(["./components/App", "./store"], () => {
+  module.hot.accept(["./components/App"], () => {
     const App = require("./components/App").default;
     render(App);
   });

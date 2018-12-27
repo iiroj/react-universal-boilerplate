@@ -1,7 +1,6 @@
+export const HOME = () => import("./views/Home");
+export const NOT_FOUND = () => import("./views/NotFound");
+
 export default {
-  HOME: {
-    path: "/",
-    title: "React Universal Boilerplate",
-    view: "Home"
-  }
+  "/": HOME
 };
