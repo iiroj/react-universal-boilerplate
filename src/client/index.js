@@ -1,5 +1,3 @@
-import "@babel/polyfill";
-
 import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import React from "react";

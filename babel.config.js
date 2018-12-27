@@ -5,7 +5,7 @@ module.exports = api => {
   const presetEnv = {
     loose: true,
     shippedProposals: true,
-    useBuiltIns: "entry"
+    useBuiltIns: "usage"
   };
 
   const presets = [
