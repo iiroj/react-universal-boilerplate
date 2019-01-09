@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.0.1"></a>
+## [5.0.1](https://github.com/iiroj/react-universal-boilerplate/compare/v5.0.0...v5.0.1) (2019-01-09)
+
+
+
 <a name="5.0.0"></a>
 # [5.0.0](https://gitlab.com/iiroj/react-universal-boilerplate/compare/v4.2.2...v5.0.0) (2018-12-27)
 
