@@ -2,19 +2,20 @@
   <img src="public/favicon_192.png" alt="React Universal Boilerplate" width="64" height="64">
   <h1 align="center">React Universal Boilerplate</h1>
   <p>An example React/Redux application with SSR and code-splitting</p>
-  <a href="https://gitlab.com/iiroj/react-universal-boilerplate"><strong>GitLab</strong></a>
+  <a href="https://github.com/iiroj/react-universal-boilerplate"><strong>GitHub</strong></a> •
+  <a href="https://github.com/iiroj/react-universal-boilerplate"><strong>GitLab</strong></a>
   <br/>
   <br/>
-  <a href="https://gitlab.com/iiroj/react-universal-boilerplate">
+  <a href="https://github.com/iiroj/react-universal-boilerplate">
     <img src="https://img.shields.io/github/package-json/v/iiroj/react-universal-boilerplate.svg?style=flat-square">
   </a>
-  <a href="https://gitlab.com/iiroj/react-universal-boilerplate">
+  <a href="https://github.com/iiroj/react-universal-boilerplate">
     <img src="https://img.shields.io/github/languages/code-size/iiroj/react-universal-boilerplate.svg?style=flat-square">
   </a>
-  <a href="https://gitlab.com/iiroj/react-universal-boilerplate/blob/master/package.json">
+  <a href="https://github.com/iiroj/react-universal-boilerplate/blob/master/package.json">
     <img src="https://img.shields.io/david/iiroj/react-universal-boilerplate.svg?style=flat-square">
   </a>
-  <a href="https://gitlab.com/iiroj/react-universal-boilerplate/blob/master/package.json">
+  <a href="https://github.com/iiroj/react-universal-boilerplate/blob/master/package.json">
     <img src="https://img.shields.io/david/dev/iiroj/react-universal-boilerplate.svg?style=flat-square">
   </a>
   <br/>

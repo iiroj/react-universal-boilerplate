@@ -4,9 +4,9 @@
   "description": "An example React/Redux application with SSR and code-splitting.",
   "license": "MIT",
   "author": "Iiro Jäppinen <iiro@jappinen.fi> (https://iiro.fi)",
-  "homepage": "https://gitlab.com/iiroj/react-universal-boilerplate",
-  "repository": "gitlab:iiroj/react-universal-boilerplate",
-  "bugs": "https://gitlab.com/iiroj/react-universal-boilerplate/issues",
+  "homepage": "https://github.com/iiroj/react-universal-boilerplate",
+  "repository": "github:iiroj/react-universal-boilerplate",
+  "bugs": "https://github.com/iiroj/react-universal-boilerplate/issues",
   "private": true,
   "scripts": {
     "dev": "NODE_ENV=development BABEL_ENV=node_development nodemon -w src/server -x babel-node -- src/server/index.js",
@@ -19,8 +19,8 @@
     "clean": "rimraf dist build",
     "start": "NODE_ENV=production node dist/server/index.js",
     "version": "standard-version",
-    "prerelease": "npm run lint && npm run build",
-    "release": "git push --follow-tags origin master"
+    "prepush": "npm run lint && npm run build",
+    "push": "git push --follow-tags origin master"
   },
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
