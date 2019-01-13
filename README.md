@@ -6,17 +6,23 @@
   <a href="https://github.com/iiroj/react-universal-boilerplate"><strong>GitLab</strong></a>
   <br/>
   <br/>
-  <a href="https://github.com/iiroj/react-universal-boilerplate">
-    <img src="https://img.shields.io/github/package-json/v/iiroj/react-universal-boilerplate.svg?style=flat-square">
+  <a href="https://github.com/iiroj/react-universal-boilerplate/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/iiroj/react-universal-boilerplate.svg">
+  </a>
+  <a href="https://github.com/iiroj/react-universal-boilerplate/releases">
+    <img src="https://img.shields.io/github/tag/iiroj/react-universal-boilerplate.svg">
+  </a>
+  <a href="https://travis-ci.com/iiroj/react-universal-boilerplate">
+    <img src="https://travis-ci.com/iiroj/react-universal-boilerplate.svg?branch=master" />
   </a>
   <a href="https://github.com/iiroj/react-universal-boilerplate">
-    <img src="https://img.shields.io/github/languages/code-size/iiroj/react-universal-boilerplate.svg?style=flat-square">
+    <img src="https://img.shields.io/github/languages/code-size/iiroj/react-universal-boilerplate.svg">
   </a>
   <a href="https://github.com/iiroj/react-universal-boilerplate/blob/master/package.json">
-    <img src="https://img.shields.io/david/iiroj/react-universal-boilerplate.svg?style=flat-square">
+    <img src="https://img.shields.io/david/iiroj/react-universal-boilerplate.svg">
   </a>
   <a href="https://github.com/iiroj/react-universal-boilerplate/blob/master/package.json">
-    <img src="https://img.shields.io/david/dev/iiroj/react-universal-boilerplate.svg?style=flat-square">
+    <img src="https://img.shields.io/david/dev/iiroj/react-universal-boilerplate.svg">
   </a>
   <br/>
   <br/>
