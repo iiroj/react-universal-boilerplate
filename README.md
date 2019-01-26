@@ -12,9 +12,6 @@
   <a href="https://github.com/iiroj/react-universal-boilerplate/releases">
     <img src="https://img.shields.io/github/tag/iiroj/react-universal-boilerplate.svg">
   </a>
-  <a href="https://travis-ci.com/iiroj/react-universal-boilerplate">
-    <img src="https://travis-ci.com/iiroj/react-universal-boilerplate.svg?branch=master" />
-  </a>
   <a href="https://github.com/iiroj/react-universal-boilerplate">
     <img src="https://img.shields.io/github/languages/code-size/iiroj/react-universal-boilerplate.svg">
   </a>
