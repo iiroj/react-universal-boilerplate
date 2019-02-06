@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.1.0"></a>
+# [5.1.0](https://github.com/iiroj/react-universal-boilerplate/compare/v5.0.6...v5.1.0) (2019-02-06)
+
+
+### Features
+
+* replace babel-preset-minify with terser-webpack-plugin ([54a606b](https://github.com/iiroj/react-universal-boilerplate/commit/54a606b))
+* replace react-universal-component with [@loadable](https://github.com/loadable)/component ([1b1cb1f](https://github.com/iiroj/react-universal-boilerplate/commit/1b1cb1f))
+
+
+
 <a name="5.0.6"></a>
 ## [5.0.6](https://github.com/iiroj/react-universal-boilerplate/compare/v5.0.5...v5.0.6) (2019-01-26)
 
