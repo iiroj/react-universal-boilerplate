@@ -1,7 +1,8 @@
-import webpack from "webpack";
 import CaseSensitivePathsPlugin from "case-sensitive-paths-webpack-plugin";
-import StatsPlugin from "stats-webpack-plugin";
 import FriendlyErrorsWebpackPlugin from "friendly-errors-webpack-plugin";
+import StatsPlugin from "stats-webpack-plugin";
+import TerserPlugin from "terser-webpack-plugin";
+import webpack from "webpack";
 
 import paths from "./src/paths";
 
@@ -76,6 +77,11 @@ if (isProduction) {
   config.plugins.push(
     new StatsPlugin("stats.json", { chunkModules: true, defaultSizes: "gzip" })
   );
+  config.optimization.minimizer = [
+    new TerserPlugin({
+      parallel: true
+    })
+  ];
 } else {
   config.entry.client.unshift(
     "webpack-hot-middleware/client?reload=true&overlayWarnings=true"

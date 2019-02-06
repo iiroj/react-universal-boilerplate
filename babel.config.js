@@ -40,14 +40,5 @@ module.exports = api => {
     plugins.push(["babel-plugin-universal-import", { babelServer: true }]);
   }
 
-  if (isProduction) {
-    presets.push([
-      "babel-preset-minify",
-      {
-        builtIns: false
-      }
-    ]);
-  }
-
   return { presets, plugins };
 };
