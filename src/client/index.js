@@ -1,3 +1,4 @@
+import { loadableReady } from "@loadable/component";
 import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import React from "react";
@@ -15,11 +16,11 @@ const render = App =>
     document.getElementById("root")
   );
 
-if (process.env.NODE_ENV === "development" && module.hot) {
-  module.hot.accept(["./components/App"], () => {
-    const App = require("./components/App").default;
+if (process.env.NODE_ENV !== "production" && module.hot) {
+  module.hot.accept("./components/App", () => {
+    const { default: App } = require("./components/App");
     render(App);
   });
 }
 
-render(App);
+loadableReady(() => render(App));

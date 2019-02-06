@@ -12,9 +12,9 @@ export default res => {
   }
 
   if (isProduction) {
-    state = require(`${paths.build}/stats.json`);
+    state = require(`${paths.build}/loadable-stats.json`);
   } else {
-    state = res.locals.webpackStats.toJson();
+    state = res.locals.webpackStats.compilation.assets["loadable-stats.json"];
   }
 
   return state;

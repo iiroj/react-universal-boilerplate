@@ -1,25 +1,16 @@
-import { flushChunkNames } from "react-universal-component/server";
-import { HelmetProvider } from "react-helmet-async";
+import { ChunkExtractor, ChunkExtractorManager } from "@loadable/server";
 import { html } from "common-tags";
-import { renderToString } from "react-dom/server";
-import { StaticRouter } from "react-router";
-import flushChunks from "webpack-flush-chunks";
 import React from "react";
+import { renderToString } from "react-dom/server";
+import { HelmetProvider } from "react-helmet-async";
+import { StaticRouter } from "react-router";
 
 import config from "../config";
 import StaticImportedApp from "../../client/components/App";
 
-import getWebpackStats from "./webpack-stats";
+import getLoadableStats from "./loadable-stats";
 
 let App = StaticImportedApp;
-
-const getScriptTags = scripts =>
-  scripts
-    .map(
-      src =>
-        `<script type="text/javascript" src="/${src}" rel="subresource" defer></script>`
-    )
-    .join("\n");
 
 export default async (req, res) => {
   try {
@@ -27,15 +18,22 @@ export default async (req, res) => {
       App = require("../../client/components/App").default;
     }
 
+    const loadableStats = getLoadableStats(res);
+    const extractor = new ChunkExtractor({
+      entrypoints: ["client"],
+      stats: JSON.parse(loadableStats.source())
+    });
     const routerContext = {};
     const helmetContext = {};
 
     const app = renderToString(
-      <StaticRouter location={req.originalUrl} context={routerContext}>
-        <HelmetProvider context={helmetContext}>
-          <App />
-        </HelmetProvider>
-      </StaticRouter>
+      <ChunkExtractorManager extractor={extractor}>
+        <StaticRouter location={req.originalUrl} context={routerContext}>
+          <HelmetProvider context={helmetContext}>
+            <App />
+          </HelmetProvider>
+        </StaticRouter>
+      </ChunkExtractorManager>
     );
 
     const { status, url } = routerContext;
@@ -45,14 +43,6 @@ export default async (req, res) => {
     }
 
     const { helmet } = helmetContext;
-
-    const stats = getWebpackStats(res);
-    const chunkNames = flushChunkNames();
-    const { scripts } = flushChunks(stats, {
-      before: ["runtime", "vendor"],
-      after: ["client"],
-      chunkNames
-    });
 
     res.status(status === 404 ? 404 : 200);
 
@@ -71,10 +61,11 @@ export default async (req, res) => {
           ${helmet.link.toString()}
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
-          ${getScriptTags(scripts)}
+          ${extractor.getLinkTags()}
         </head>
         <body ${helmet.bodyAttributes.toString()}>
           <div id="root">${app}</div>
+          ${extractor.getScriptTags()}
         </body>
       </html>
     `.replace(/^\s*$(?:\r\n?|\n)/gm, "");

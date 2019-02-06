@@ -1,3 +1,4 @@
+import LoadablePlugin from "@loadable/webpack-plugin";
 import CaseSensitivePathsPlugin from "case-sensitive-paths-webpack-plugin";
 import FriendlyErrorsWebpackPlugin from "friendly-errors-webpack-plugin";
 import StatsPlugin from "stats-webpack-plugin";
@@ -48,7 +49,8 @@ const config = {
       "process.env": {
         NODE_ENV: JSON.stringify(isProduction ? "production" : "development")
       }
-    })
+    }),
+    new LoadablePlugin()
   ],
 
   optimization: {
