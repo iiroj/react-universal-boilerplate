@@ -5,7 +5,7 @@
 [![dependencies](https://img.shields.io/david/iiroj/react-universal-boilerplate.svg)](https://github.com/iiroj/react-universal-boilerplate/blob/master/package.json)
 [![devDependencies](https://img.shields.io/david/dev/iiroj/react-universal-boilerplate.svg)](https://github.com/iiroj/react-universal-boilerplate/blob/master/package.json)
 
-An example React/Redux application with SSR and code-splitting.
+An example React client/server application with SSR and code-splitting.
 
 ----
 
@@ -18,9 +18,7 @@ Feel free to clone/fork this repository and build upon it.
 This project uses the latest and greatest for lazy-loading pages and code-splitting. You should read the listed packages' readmes to learn more:
 
 * [react](https://github.com/facebook/react) — A JavaScript library for building user interfaces
-* [redux](https://github.com/reduxjs/redux) — state management
-* [immer](https://github.com/mweststrate/immer) — handling immutable state
-* [redux-first-router](https://github.com/faceyspacey/redux-first-router) — routing of pages
+* [react-router](https://github.com/ReactTraining/react-router) — routing of pages
 * [@loadable/component](https://github.com/smooth-code/loadable-components) — code-splitting and lazy-loading
 * [emotion](https://github.com/emotion-js/emotion) — styling (css-in-js)
 * [react-helmet-async](https://github.com/staylor/react-helmet-async) — manipulating the `<head>` from React
