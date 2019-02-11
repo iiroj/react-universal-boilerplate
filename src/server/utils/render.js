@@ -61,11 +61,10 @@ export default async (req, res) => {
           ${helmet.link.toString()}
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
-          ${extractor.getLinkTags()}
+          ${extractor.getScriptTags().replace(/async/g, "defer")}
         </head>
         <body ${helmet.bodyAttributes.toString()}>
           <div id="root">${app}</div>
-          ${extractor.getScriptTags()}
         </body>
       </html>
     `.replace(/^\s*$(?:\r\n?|\n)/gm, "");
