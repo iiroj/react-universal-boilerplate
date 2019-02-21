@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [5.2.0](https://github.com/iiroj/react-universal-boilerplate/compare/v5.1.2...v5.2.0) (2019-02-21)
+
+
+### Features
+
+* use React hooks ([c8ac8df](https://github.com/iiroj/react-universal-boilerplate/commit/c8ac8df))
+
+
+
 <a name="5.1.2"></a>
 ## [5.1.2](https://github.com/iiroj/react-universal-boilerplate/compare/v5.1.1...v5.1.2) (2019-02-11)
 
