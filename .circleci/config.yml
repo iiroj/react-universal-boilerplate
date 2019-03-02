@@ -49,10 +49,19 @@ workflows:
   version: 2
   ci:
     jobs:
-      - install
+      - install:
+          filters:
+              tags:
+                only: /.*/
       - test:
           requires:
             - install
+          filters:
+            tags:
+              only: /.*/
       - build:
           requires:
             - install
+          filters:
+            tags:
+              only: /.*/
