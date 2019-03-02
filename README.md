@@ -1,9 +1,10 @@
 # React Universal Boilerplate
 
-[![license](https://img.shields.io/github/license/iiroj/react-universal-boilerplate.svg)](https://github.com/iiroj/react-universal-boilerplate/blob/master/LICENSE)
+[![CircleCI](https://circleci.com/gh/iiroj/react-universal-boilerplate.svg?style=shield)](https://circleci.com/gh/iiroj/react-universal-boilerplate)
 [![version](https://img.shields.io/github/tag/iiroj/react-universal-boilerplate.svg)](https://github.com/iiroj/react-universal-boilerplate/releases)
 [![dependencies](https://img.shields.io/david/iiroj/react-universal-boilerplate.svg)](https://github.com/iiroj/react-universal-boilerplate/blob/master/package.json)
 [![devDependencies](https://img.shields.io/david/dev/iiroj/react-universal-boilerplate.svg)](https://github.com/iiroj/react-universal-boilerplate/blob/master/package.json)
+[![license](https://img.shields.io/github/license/iiroj/react-universal-boilerplate.svg)](https://github.com/iiroj/react-universal-boilerplate/blob/master/LICENSE)
 
 An example React client/server application with SSR and code-splitting.
 
