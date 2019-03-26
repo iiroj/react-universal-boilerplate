@@ -3,6 +3,7 @@ module.exports = api => {
   const isProduction = env.endsWith("production");
 
   const presetEnv = {
+    corejs: "3",
     loose: true,
     shippedProposals: true,
     useBuiltIns: "usage"

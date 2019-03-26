@@ -1,5 +1,5 @@
 import { css } from "@emotion/core";
-import Head from "react-helmet-async";
+import { Helmet } from "react-helmet-async";
 import React from "react";
 
 import Button from "../components/Button";
@@ -12,9 +12,9 @@ const buttonContainer = css({
 
 const Home = () => (
   <main>
-    <Head>
+    <Helmet>
       <title>React Universal Boilerplate</title>
-    </Head>
+    </Helmet>
 
     <h1
       css={css({

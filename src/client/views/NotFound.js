@@ -1,5 +1,5 @@
 import { css } from "@emotion/core";
-import Head from "react-helmet-async";
+import { Helmet } from "react-helmet-async";
 import { withRouter } from "react-router";
 import React from "react";
 
@@ -10,9 +10,9 @@ const NotFound = ({ location, staticContext = {} }) => {
 
   return (
     <main>
-      <Head>
+      <Helmet>
         <title>404 — Not Found</title>
-      </Head>
+      </Helmet>
 
       <h1
         css={css({
