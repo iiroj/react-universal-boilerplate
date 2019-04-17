@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.2.6](https://github.com/iiroj/react-universal-boilerplate/compare/v5.2.5...v5.2.6) (2019-04-17)
+
+
+### Bug Fixes
+
+* correctly handle stats JSON in production mode ([ec7cf2e](https://github.com/iiroj/react-universal-boilerplate/commit/ec7cf2e))
+* deprecation in helmet ([fb7bcee](https://github.com/iiroj/react-universal-boilerplate/commit/fb7bcee))
+
+
+
 ## [5.2.5](https://github.com/iiroj/react-universal-boilerplate/compare/v5.2.4...v5.2.5) (2019-04-17)
 
 
