@@ -24,7 +24,7 @@ export default app => {
     app.enable("etag");
     app.use(compression());
     app.use(helmet());
-    app.use(helmet.hsts({ includeSubdomains: false }));
+    app.use(helmet.hsts({ includeSubDomains: false }));
 
     app.use(
       helmet.contentSecurityPolicy({
