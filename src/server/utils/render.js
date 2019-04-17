@@ -18,10 +18,9 @@ export default async (req, res) => {
       App = require("../../client/components/App").default;
     }
 
-    const loadableStats = getLoadableStats(res);
     const extractor = new ChunkExtractor({
       entrypoints: ["client"],
-      stats: JSON.parse(loadableStats.source())
+      stats: getLoadableStats(res)
     });
     const routerContext = {};
     const helmetContext = {};
@@ -69,6 +68,7 @@ export default async (req, res) => {
       </html>
     `.replace(/^\s*$(?:\r\n?|\n)/gm, "");
   } catch (error) {
+    console.error(error);
     res.status(500);
     return "Internal Server Error";
   }
