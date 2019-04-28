@@ -24,9 +24,9 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.10",
-    "@loadable/component": "^5.7.0",
-    "@loadable/server": "^5.8.0",
-    "body-parser": "^1.18.3",
+    "@loadable/component": "^5.9.0",
+    "@loadable/server": "^5.9.0",
+    "body-parser": "^1.19.0",
     "common-tags": "^1.8.0",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.4",
@@ -50,15 +50,15 @@
     "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.3",
-    "@babel/core": "^7.4.3",
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
     "@babel/node": "^7.2.2",
-    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
-    "@babel/runtime": "^7.4.3",
+    "@babel/runtime": "^7.4.4",
     "@emotion/babel-preset-css-prop": "^10.0.9",
     "@loadable/babel-plugin": "^5.8.0",
     "@loadable/webpack-plugin": "^5.7.1",
@@ -70,9 +70,9 @@
     "concurrently": "^4.1.0",
     "dotenv": "^7.0.0",
     "eslint": "^5.16.0",
-    "eslint-config-prettier": "^4.1.0",
+    "eslint-config-prettier": "^4.2.0",
     "eslint-plugin-prettier": "^3.0.1",
-    "eslint-plugin-react-app": "^4.0.1",
+    "eslint-plugin-react-app": "^5.0.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "nodemon": "^1.18.11",
     "prettier": "^1.17.0",
@@ -83,8 +83,8 @@
     "terser-webpack-plugin": "^1.2.3",
     "webpack": "^4.30.0",
     "webpack-bundle-analyzer": "^3.3.2",
-    "webpack-cli": "^3.3.0",
+    "webpack-cli": "^3.3.1",
     "webpack-dev-middleware": "^3.6.2",
-    "webpack-hot-middleware": "^2.24.3"
+    "webpack-hot-middleware": "^2.24.4"
   }
 }
