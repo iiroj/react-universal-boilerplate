@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.2.9](https://github.com/iiroj/react-universal-boilerplate/compare/v5.2.8...v5.2.9) (2019-06-02)
+
+
+### Bug Fixes
+
+* add history.action to hook dependency ([f5146b7](https://github.com/iiroj/react-universal-boilerplate/commit/f5146b7))
+
+
+
 ### [5.2.8](https://github.com/iiroj/react-universal-boilerplate/compare/v5.2.7...v5.2.8) (2019-06-02)
 
 
