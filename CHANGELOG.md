@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.2.10](https://github.com/iiroj/react-universal-boilerplate/compare/v5.2.9...v5.2.10) (2019-07-07)
+
+
+### Build System
+
+* add husky, commitlint and lint-staged ([6fd4a8d](https://github.com/iiroj/react-universal-boilerplate/commit/6fd4a8d))
+
+
+
 ### [5.2.9](https://github.com/iiroj/react-universal-boilerplate/compare/v5.2.8...v5.2.9) (2019-06-02)
 
 
